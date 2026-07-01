@@ -54,10 +54,16 @@
 
 .course-line {
   color: var(--muted);
+  display: block;
   font-size: 0.62em;
+  left: 50%;
   line-height: 1.25;
   margin: 1.4rem auto 0;
   max-width: 30rem;
+  position: relative;
+  text-align: center;
+  transform: translateX(-50%);
+  width: 30rem;
 }
 
 .uni-logo {
