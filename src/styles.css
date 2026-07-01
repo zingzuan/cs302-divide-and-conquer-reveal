@@ -1652,8 +1652,8 @@
 }
 
 .matrix-running-view .strassen-combine {
-  font-size: 0.48em;
-  margin-top: 0.12rem;
+  font-size: 0.46em;
+  margin: 0.08rem 0 0;
 }
 
 .matrix-running-view .matrix-running {
@@ -1677,10 +1677,27 @@
   bottom: auto;
   display: inline-block;
   font-size: 1.05em;
-  left: auto;
-  position: static;
-  transform: none;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
   width: auto;
+}
+
+.matrix-running-view .strassen-title {
+  min-height: 1.15em;
+  position: relative;
+}
+
+.matrix-running-view .strassen-time {
+  font-size: 0.5em;
+  margin: 0.08rem auto 0;
+  max-width: 32rem;
+  text-align: center;
+}
+
+.matrix-running-view .strassen-time .katex-display {
+  margin: 0;
 }
 
 .matrix-final-view {

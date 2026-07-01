@@ -414,8 +414,8 @@ function matrixFrame(page) {
   const strassen = page >= 132 ? strassenProducts(page) : '';
   const combine = page >= 134 ? strassenCombine : '';
   const runningStrassen = '';
-  const strassenRecurrence = '';
-  const strassenResult = '';
+  const strassenRecurrence = page === 135 ? '<p class="red-note matrix-recurrence strassen-time">\\[T(n)=7T(n/2)+\\Theta(n^2)\\]</p>' : '';
+  const strassenResult = page === 135 ? '<p class="red-note matrix-recurrence strassen-time strassen-result">\\[\\rightarrow T(n)=O(n^{\\log_2 7})\\approx O(n^{2.81})\\]</p>' : '';
   return makeSlide('Matrix multiplication algorithms', `
     <div class="matrix-algorithm-layout ${page === 135 ? 'matrix-running-view' : ''} ${page >= 136 ? 'matrix-final-view' : ''}">
       ${intro}
