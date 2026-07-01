@@ -668,6 +668,11 @@
   font-size: 0.3em;
 }
 
+.closest-code-view .closest-runtime-question {
+  font-size: 0.72em;
+  margin: 0.32rem 0 0.12rem;
+}
+
 .closest-code-view .red-note,
 .closest-code-view .blue-note,
 .closest-code-view .equation {

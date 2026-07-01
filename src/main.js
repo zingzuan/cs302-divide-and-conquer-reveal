@@ -326,9 +326,10 @@ function closestFrame(page) {
       <strong>Algorithm 3:</strong> Find the closest pair in 2D space
       <ol>${closestLines.slice(0, closestCount).map((line, index) => `<li class="${index === closestCount - 1 ? 'new-code-line' : ''}">${line}</li>`).join('')}</ol>
     </div>` : '';
+  const runtimeQuestion = page >= 114 ? '<p class="red-note closest-runtime-question">Running time?</p>' : '';
   const runtime = page >= 114 ? '<p class="red-note">\\(T(n)=2T(n/2)+\\Theta(n\\log n)\\)</p>' : '';
   const final = page >= 115 ? '<p class="red-note">\\(T(n)=O(n\\log n\\log n)\\)</p>' : '';
-  return makeSlide('Closest pair', `<div class="closest-exact-layout ${page >= 110 ? 'closest-code-view' : ''}"><div>${intro}${exhaustive}${divide}${left}${right}${d}${packing}${eight}${pseudo}${runtime}${final}</div>${closestGraph(page)}</div>`, page);
+  return makeSlide('Closest pair', `<div class="closest-exact-layout ${page >= 110 ? 'closest-code-view' : ''}"><div>${intro}${exhaustive}${divide}${left}${right}${d}${packing}${eight}${pseudo}${runtimeQuestion}${runtime}${final}</div>${closestGraph(page)}</div>`, page);
 }
 
 function matrixMultiplyDiagram(page) {
