@@ -196,7 +196,7 @@ function mergeScene(page) {
     board.push(posRow(['4','8'], 12, 6.2));
     board.push(posRow(['1','3'], 21.7, 6.2));
     board.push(posRow(['7','6'], 30, 6.2));
-    if (page <= 52) {
+    if (page >= 48) {
       board.push(posArrow(5.8, 9.1, 3.0, 'Sort', 'small-sort-arrow'));
       board.push(posArrow(14.1, 9.1, 3.0, 'Sort', 'small-sort-arrow'));
       board.push(posArrow(23.8, 9.1, 3.0, 'Sort', 'small-sort-arrow'));
