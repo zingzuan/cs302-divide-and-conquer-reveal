@@ -197,10 +197,10 @@ function mergeScene(page) {
     board.push(posRow(['1','3'], 21.7, 6.2));
     board.push(posRow(['7','6'], 30, 6.2));
     if (page <= 52) {
-      board.push(posArrow(5.8, 8.55, 3.0, 'Sort', 'small-sort-arrow'));
-      board.push(posArrow(14.1, 8.55, 3.0, 'Sort', 'small-sort-arrow'));
-      board.push(posArrow(23.8, 8.55, 3.0, 'Sort', 'small-sort-arrow'));
-      board.push(posArrow(32.1, 8.55, 3.0, 'Sort', 'small-sort-arrow'));
+      board.push(posArrow(5.8, 9.1, 3.0, 'Sort', 'small-sort-arrow'));
+      board.push(posArrow(14.1, 9.1, 3.0, 'Sort', 'small-sort-arrow'));
+      board.push(posArrow(23.8, 9.1, 3.0, 'Sort', 'small-sort-arrow'));
+      board.push(posArrow(32.1, 9.1, 3.0, 'Sort', 'small-sort-arrow'));
     }
     board.push(`<div class="pos-result small-result" style="--x:3.7rem;--y:13.1rem">${mergeResultSlots(page >= 50 ? ['2','5'] : page >= 49 ? ['5'] : [], 2)}</div>`);
     board.push(`<div class="pos-result small-result" style="--x:12rem;--y:13.1rem">${mergeResultSlots(page >= 50 ? ['4','8'] : [], 2)}</div>`);
@@ -377,9 +377,9 @@ const naiveBlock = `
     \\]</p>
   </div>`;
 
-const strassenProducts = `
+const strassenProducts = (page) => `
   <div class="matrix-algo-block strassen-list">
-    <p>Strassen algorithm</p>
+    <p class="strassen-title">Strassen algorithm${page === 135 ? '<span class="red-note matrix-running strassen-running">Running time?</span>' : ''}</p>
     <p>\\(M_1=(A_{11}+A_{22})(B_{11}+B_{22})\\)</p>
     <p>\\(M_2=(A_{21}+A_{22})B_{11}\\)</p>
     <p>\\(M_3=A_{11}(B_{12}-B_{22})\\)</p>
@@ -410,9 +410,9 @@ function matrixFrame(page) {
   const runningNaive = page === 129 ? '<p class="red-note matrix-running">Running time?</p>' : '';
   const naiveRecurrence = page >= 130 ? '<p class="red-note matrix-recurrence">\\[T(n)=8T(n/2)+\\Theta(n^2)\\]</p>' : '';
   const naiveResult = page >= 131 ? '<p class="red-note matrix-recurrence">\\[\\rightarrow T(n)=O(n^3)\\]</p>' : '';
-  const strassen = page >= 132 ? strassenProducts : '';
+  const strassen = page >= 132 ? strassenProducts(page) : '';
   const combine = page >= 134 ? strassenCombine : '';
-  const runningStrassen = page === 135 ? '<p class="red-note matrix-running strassen-running">Running time?</p>' : '';
+  const runningStrassen = '';
   const strassenRecurrence = '';
   const strassenResult = '';
   return makeSlide('Matrix multiplication algorithms', `
