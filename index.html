@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS302 Lecture 2 - Divide and Conquer</title>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section class="title-slide">
+          <h1>Lecture 2: Divide-and-conquer algorithms</h1>
+          <p class="course-line">CS302 - <em>Algorithms &amp; Theory of Computing</em><br />Fall 2025</p>
+          <img class="uni-logo" src="/assets/fulbright-logo.png" alt="Fulbright University Vietnam logo" />
+          <aside class="notes">
+            Opening slide from the source lecture. The rebuilt deck uses native
+            reveal.js slides instead of static page screenshots.
+          </aside>
+          <span class="pdf-page">1</span>
+        </section>
+
+        <section>
+          <h2>Outline</h2>
+          <ol class="agenda">
+            <li>Merge sort and quick sort</li>
+            <li>Closest pair</li>
+            <li>Matrix multiplication</li>
+            <li>Master theorem</li>
+          </ol>
+          <span class="pdf-page">2</span>
+        </section>
+
+        <section data-object-deck="selection"></section>
+        <section data-object-deck="merge"></section>
+        <section data-object-deck="quick"></section>
+
+        <section data-object-deck="sorting-table"></section>
+
+        <section data-object-deck="closest"></section>
+
+        <section data-object-deck="matrix"></section>
+
+        <section>
+          <h2>Master Theorem</h2>
+          <p class="equation">\[T(n) = aT(n / b) + f(n)\]</p>
+          <ol class="steps compact">
+            <li class="fragment">If \(f(n) = O(n^{\log_b a - \epsilon})\), then \(T(n) = \Theta(n^{\log_b a})\).</li>
+            <li class="fragment">If \(f(n) = \Theta(n^{\log_b a})\), then \(T(n) = \Theta(n^{\log_b a}\log n)\).</li>
+            <li class="fragment">If \(f(n) = \Omega(n^{\log_b a + \epsilon})\), then \(T(n) = \Theta(f(n))\).</li>
+          </ol>
+          <span class="pdf-page">138</span>
+        </section>
+
+        <section class="summary-slide">
+          <h2>Summary</h2>
+          <div class="summary-exact">
+            <p class="summary-main">Divide and conquer algorithms</p>
+            <ul>
+              <li>Design: Two steps
+                <ul>
+                  <li>Divide the original problem into smaller sub-problems</li>
+                  <li>Combine solutions of sub-problems to build the solution of the original problem
+                    <ul><li class="key-step">Key step!</li></ul>
+                  </li>
+                </ul>
+              </li>
+              <li>Analysis
+                <ul><li>Recursive relation &rarr;Master theorem</li></ul>
+              </li>
+              <li>Examples
+                <ul>
+                  <li>Merge sort, quick sort</li>
+                  <li>Closest pair</li>
+                  <li>Matrix multiplication</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <span class="pdf-page">139</span>
+        </section>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
