@@ -380,7 +380,7 @@ const naiveBlock = `
 
 const strassenProducts = (page) => `
   <div class="matrix-algo-block strassen-list">
-    <p class="strassen-title">Strassen algorithm${page === 135 ? '<span class="red-note matrix-running strassen-running">Running time?</span>' : ''}</p>
+    <p class="strassen-title">Strassen algorithm</p>
     <p>\\(M_1=(A_{11}+A_{22})(B_{11}+B_{22})\\)</p>
     <p>\\(M_2=(A_{21}+A_{22})B_{11}\\)</p>
     <p>\\(M_3=A_{11}(B_{12}-B_{22})\\)</p>

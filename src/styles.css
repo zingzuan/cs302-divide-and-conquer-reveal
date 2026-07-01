@@ -1648,12 +1648,19 @@
 }
 
 .matrix-running-view .strassen-list {
+  display: inline-block;
   line-height: 1.03;
+  vertical-align: top;
+  width: 48%;
 }
 
 .matrix-running-view .strassen-combine {
-  font-size: 0.46em;
-  margin: 0.08rem 0 0;
+  display: inline-block;
+  font-size: 0.58em;
+  margin: 0.35rem 0 0 1.2rem;
+  text-align: center;
+  vertical-align: top;
+  width: 47%;
 }
 
 .matrix-running-view .matrix-running {
@@ -1662,37 +1669,15 @@
   margin-top: 0;
 }
 
-.matrix-running-view .strassen-running {
-  bottom: 5.15rem;
-  font-size: 0.74em;
-  left: 50%;
-  margin: 0;
-  position: absolute;
-  text-align: center;
-  transform: translateX(-50%);
-  width: 18rem;
-}
-
-.matrix-running-view .strassen-title .strassen-running {
-  bottom: auto;
-  display: inline-block;
-  font-size: 1.05em;
-  left: 50%;
-  position: absolute;
-  top: 0;
-  transform: translateX(-50%);
-  width: auto;
-}
-
 .matrix-running-view .strassen-title {
-  min-height: 1.15em;
-  position: relative;
+  min-height: 1em;
 }
 
 .matrix-running-view .strassen-time {
-  font-size: 0.5em;
-  margin: 0.08rem auto 0;
-  max-width: 32rem;
+  clear: both;
+  font-size: 0.62em;
+  margin: 0.18rem auto 0;
+  max-width: 42rem;
   text-align: center;
 }
 
