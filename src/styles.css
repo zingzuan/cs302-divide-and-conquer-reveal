@@ -589,18 +589,18 @@
 
 .quick-runtime-panel .analysis-heading {
   font-size: 0.78em;
-  margin: 0 0 0.28rem;
+  margin: 0 0 0.36rem;
 }
 
 .quick-runtime-panel .quick-recurrence {
   font-size: 0.42em;
-  margin: 0.22rem 0;
+  margin: 0.32rem 0;
 }
 
 .quick-runtime-panel .quick-scenario {
   font-size: 0.4em;
-  line-height: 1.28;
-  margin: 0.28rem 0;
+  line-height: 1.36;
+  margin: 0.36rem 0;
 }
 
 .quick-runtime-panel .katex-display {
@@ -759,9 +759,9 @@
 }
 
 .closest-complexity-box p:first-child {
-  font-size: 1.26em;
+  font-size: 1.45em;
   font-weight: 700;
-  margin-bottom: 0.24rem;
+  margin-bottom: 0.3rem;
 }
 
 .closest-code-view .closest-graph {
@@ -1940,6 +1940,10 @@
 
 .matrix-fixed-view .naiveBlock .equation .katex-display {
   text-align: left !important;
+}
+
+.matrix-fixed-view .naiveBlock .equation {
+  margin-left: -0.7rem;
 }
 
 .matrix-fixed-view .naive-time-row {
