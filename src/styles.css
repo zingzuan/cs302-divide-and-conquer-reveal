@@ -1721,6 +1721,25 @@
   margin-top: 0.25rem;
 }
 
+.matrix-time-pair {
+  align-items: center;
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: minmax(0, 1.16fr) minmax(15rem, 0.84fr);
+  margin: 0.35rem 0 0.1rem;
+  width: 100%;
+}
+
+.matrix-time-pair .matrix-recurrence {
+  margin: 0;
+  max-width: none;
+  text-align: left;
+}
+
+.matrix-time-pair .matrix-recurrence .katex-display {
+  margin: 0;
+}
+
 .matrix-running-view {
   font-size: 0.84em;
   max-width: 58rem;
