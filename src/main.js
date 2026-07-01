@@ -408,14 +408,21 @@ function matrixFrame(page) {
 
   const intro = page >= 127 ? blockSetup : '<div class="matrix-algo-opener"><div class="mini-block-matrix"><span></span><span></span><span></span><span></span></div><strong>Block decomposition</strong><div class="mini-block-matrix"><span></span><span></span><span></span><span></span></div></div>';
   const naive = page >= 128 ? naiveBlock : '';
-  const runningNaive = page === 129 ? '<p class="red-note matrix-running">Running time?</p>' : '';
+  const runningNaive = page >= 129 && page <= 131 ? '<p class="red-note matrix-running">Running time?</p>' : '';
   const naiveRecurrence = page >= 130 ? '<p class="red-note matrix-recurrence">\\[T(n)=8T(n/2)+\\Theta(n^2)\\]</p>' : '';
   const naiveResult = page >= 131 ? '<p class="red-note matrix-recurrence">\\[\\rightarrow T(n)=O(n^3)\\]</p>' : '';
   const strassen = page >= 132 ? strassenProducts(page) : '';
-  const combine = page >= 134 ? strassenCombine : '';
+  const strassenTime = page === 135 ? `
+    <div class="strassen-time-block">
+      <p class="red-note matrix-recurrence strassen-time">\\[T(n)=7T(n/2)+\\Theta(n^2)\\]</p>
+      <p class="red-note matrix-recurrence strassen-time strassen-result">\\[\\rightarrow T(n)=O(n^{\\log_2 7})\\approx O(n^{2.81})\\]</p>
+    </div>` : '';
+  const combine = page === 135
+    ? `<div class="strassen-bottom-row">${strassenCombine}${strassenTime}</div>`
+    : page >= 134 ? strassenCombine : '';
   const runningStrassen = '';
-  const strassenRecurrence = page === 135 ? '<p class="red-note matrix-recurrence strassen-time">\\[T(n)=7T(n/2)+\\Theta(n^2)\\]</p>' : '';
-  const strassenResult = page === 135 ? '<p class="red-note matrix-recurrence strassen-time strassen-result">\\[\\rightarrow T(n)=O(n^{\\log_2 7})\\approx O(n^{2.81})\\]</p>' : '';
+  const strassenRecurrence = '';
+  const strassenResult = '';
   return makeSlide('Matrix multiplication algorithms', `
     <div class="matrix-algorithm-layout ${page === 135 ? 'matrix-running-view' : ''} ${page >= 136 ? 'matrix-final-view' : ''}">
       ${intro}
