@@ -81,7 +81,7 @@ function algoMergeForPage(page) {
 
 function makeSlide(title, body, page) {
   const slide = document.createElement('section');
-  slide.className = 'object-frame';
+  slide.className = `object-frame page-${page}`;
   slide.dataset.transition = 'none';
   slide.innerHTML = `<h2>${title}</h2>${body}<span class="pdf-page">${page}</span>`;
   return slide;
