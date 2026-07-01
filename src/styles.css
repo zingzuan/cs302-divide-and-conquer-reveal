@@ -1651,16 +1651,16 @@
   display: inline-block;
   line-height: 1.03;
   vertical-align: top;
-  width: 48%;
+  width: 43%;
 }
 
 .matrix-running-view .strassen-combine {
   display: inline-block;
-  font-size: 0.58em;
-  margin: 0.35rem 0 0 1.2rem;
+  font-size: 0.56em;
+  margin: 0.32rem 0 0 0.35rem;
   text-align: center;
   vertical-align: top;
-  width: 47%;
+  width: 54%;
 }
 
 .matrix-running-view .matrix-running {
