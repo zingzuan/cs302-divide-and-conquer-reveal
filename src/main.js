@@ -302,7 +302,8 @@ function closestGraph(page) {
   const right = page >= 99 ? '<i class="dr-line"></i><b class="dr-label">\\(d_r\\)</b>' : '';
   const strip = page >= 101 ? '<i class="band"></i><i class="strip-left"></i><i class="strip-right"></i><b class="strip-label">\\(d\\quad d\\)</b>' : '';
   const grid = page >= 103 ? '<i class="grid-lines"></i>' : '';
-  return `<div class="closest-graph exact">${pts}${strip}${split}${left}${right}${grid}</div>`;
+  const dFormula = page >= 100 ? '<p class="equation closest-graph-equation">\\[d = \\min\\{d_l,d_r\\}\\]</p>' : '';
+  return `<div class="closest-graph-stack"><div class="closest-graph exact">${pts}${strip}${split}${left}${right}${grid}</div>${dFormula}</div>`;
 }
 
 function closestFrame(page) {
@@ -311,7 +312,6 @@ function closestFrame(page) {
   const divide = page >= 94 && page < 96 ? '<p class="red-note">Divide points into two equal halves by x-coordinate</p>' : '';
   const left = page >= 96 && page < 98 ? '<p class="red-note">Find the closest pair of the left</p>' : '';
   const right = page >= 98 && page < 100 ? '<p class="red-note">Find the closest pair of the right</p>' : '';
-  const d = page >= 100 ? '<p class="equation">\\[d = \\min\\{d_l,d_r\\}\\]</p>' : '';
   const packing = page >= 107 ? '<p class="blue-note">Each \\(d/2 \\times d/2\\) square has at most one point only</p>' : '';
   const eight = page >= 108 ? '<p class="red-note">For each node in the left strip, check at most 8 points in the right strip!</p>' : '';
   const closestLines = [
@@ -336,7 +336,7 @@ function closestFrame(page) {
       <p>\\(T(n)=2T(n/2)+\\Theta(n\\log n)\\)</p>
       ${page >= 115 ? '<p>\\(T(n)=O(n\\log n\\log n)\\)</p>' : ''}
     </div>` : '';
-  return makeSlide('Closest pair', `<div class="closest-exact-layout ${page >= 110 ? 'closest-code-view' : ''}"><div>${intro}${exhaustive}${divide}${left}${right}${d}${packing}${eight}${pseudo}${complexity}</div>${closestGraph(page)}</div>`, page);
+  return makeSlide('Closest pair', `<div class="closest-exact-layout ${page >= 110 ? 'closest-code-view' : ''}"><div class="closest-text-column">${intro}${exhaustive}${divide}${left}${right}${packing}${eight}${pseudo}${complexity}</div>${closestGraph(page)}</div>`, page);
 }
 
 function matrixMultiplyDiagram(page) {

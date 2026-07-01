@@ -687,6 +687,24 @@
   margin-top: -0.4rem;
 }
 
+.closest-graph-stack {
+  justify-self: center;
+  text-align: center;
+}
+
+.closest-graph-equation {
+  font-size: 0.52em;
+  margin: -2.8rem auto 0;
+  text-align: center;
+  width: fit-content;
+}
+
+.closest-text-column .red-note,
+.closest-text-column .blue-note {
+  margin-top: 0.28rem;
+  margin-bottom: 0.28rem;
+}
+
 .closest-code {
   font-size: 0.34em;
   max-width: 38rem;
@@ -698,6 +716,12 @@
 
 .closest-code-view .closest-code {
   font-size: 0.3em;
+}
+
+.closest-code-view .closest-text-column .red-note,
+.closest-code-view .closest-text-column .blue-note {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
 }
 
 .closest-code-view .red-note,
@@ -726,6 +750,10 @@
 .closest-code-view .closest-graph {
   transform: scale(0.78);
   transform-origin: top center;
+}
+
+.closest-code-view .closest-graph-equation {
+  margin-top: -5.5rem;
 }
 
 .lead {
