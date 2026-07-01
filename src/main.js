@@ -451,7 +451,7 @@ const deck = new Reveal({
   progress: true,
   slideNumber: 'c/t',
   center: true,
-  transition: 'slide',
+  transition: 'fade',
   backgroundTransition: 'fade',
   katex: {
     version: '0.16.11'
