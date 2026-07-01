@@ -280,11 +280,11 @@ function quickFrame(page) {
     stage >= 5 ? `<div class="quick-row recursion-row">${page >= 70 ? row(['2','1']) : ''}${page >= 70 ? '<span class="single-pivot">3</span>' : ''}${page >= 70 ? row(['5','4']) : ''}${page >= 71 ? row(['7']) : ''}${page >= 71 ? row(['8']) : ''}</div><div class="quick-row recursion-row">${page >= 72 ? row(['1','2']) : ''}${page >= 73 ? row(['4','5']) : ''}${page >= 74 ? row(['1','2','3','4','5']) : ''}${page >= 75 ? row(['1','2','3','4','5','6','7','8']) : ''}</div>` : '',
     stage >= 6 ? `<div class="quick-row">${row(['1','2','3','4','5'])}<span class="single-pivot">6</span>${row(['7','8'])}</div><div>${row(['1','2','3','4','5','6','7','8'], { sortedUntil: 7 })}</div>` : ''
   ].join('');
-  const runtimeBlock = page >= 77 ? `
+  const runtimeBlock = page >= 83 ? `
     <div class="quick-runtime-panel">
       <p class="red-note analysis-heading">Running time?</p>
-      ${page >= 80 ? '<p class="equation quick-recurrence">\\[T(n)=T(|A_{less}|)+T(|A_{greater}|)+\\Theta(n)\\]</p>' : ''}
-      ${page >= 82 ? `<p class="red-note quick-scenario">Scenario 1: \\(T(n)=T(n/2)+T(n/2)+\\Theta(n)\\)${page >= 83 ? '<br>\\(\\rightarrow T(n)=O(n\\log n)\\) (Best)' : ''}</p>` : ''}
+      <p class="equation quick-recurrence">\\[T(n)=T(|A_{less}|)+T(|A_{greater}|)+\\Theta(n)\\]</p>
+      ${page >= 83 ? `<p class="red-note quick-scenario">Scenario 1: \\(T(n)=T(n/2)+T(n/2)+\\Theta(n)\\)<br>\\(\\rightarrow T(n)=O(n\\log n)\\) (Best)</p>` : ''}
       ${page >= 84 ? `<p class="red-note quick-scenario">Scenario 2: \\(T(n)=T(0)+T(n-1)+\\Theta(n)\\)${page >= 85 ? '<br>\\(\\rightarrow T(n)=O(n^2)\\) (Worst)' : ''}</p>` : ''}
     </div>` : '';
   return makeSlide('Quick sort', `<div class="quick-object-layout compact-quick-layout quick-page-${page} ${page >= 76 ? 'analysis-quick' : ''}"><div class="quick-visual-column">${parts}</div>${page >= 76 ? algoQuickForPage(page) : ''}${runtimeBlock}</div>`, page);
@@ -330,10 +330,13 @@ function closestFrame(page) {
       <strong>Algorithm 3:</strong> Find the closest pair in 2D space
       <ol>${closestLines.slice(0, closestCount).map((line, index) => `<li class="${index === closestCount - 1 ? 'new-code-line' : ''}">${line}</li>`).join('')}</ol>
     </div>` : '';
-  const runtimeQuestion = page >= 114 ? '<p class="red-note closest-runtime-question">Running time?</p>' : '';
-  const runtime = page >= 114 ? '<p class="red-note">\\(T(n)=2T(n/2)+\\Theta(n\\log n)\\)</p>' : '';
-  const final = page >= 115 ? '<p class="red-note">\\(T(n)=O(n\\log n\\log n)\\)</p>' : '';
-  return makeSlide('Closest pair', `<div class="closest-exact-layout ${page >= 110 ? 'closest-code-view' : ''}"><div>${intro}${exhaustive}${divide}${left}${right}${d}${packing}${eight}${pseudo}${runtimeQuestion}${runtime}${final}</div>${closestGraph(page)}</div>`, page);
+  const complexity = page >= 114 ? `
+    <div class="closest-complexity-box">
+      <p>Running time?</p>
+      <p>\\(T(n)=2T(n/2)+\\Theta(n\\log n)\\)</p>
+      ${page >= 115 ? '<p>\\(T(n)=O(n\\log n\\log n)\\)</p>' : ''}
+    </div>` : '';
+  return makeSlide('Closest pair', `<div class="closest-exact-layout ${page >= 110 ? 'closest-code-view' : ''}"><div>${intro}${exhaustive}${divide}${left}${right}${d}${packing}${eight}${pseudo}${complexity}</div>${closestGraph(page)}</div>`, page);
 }
 
 function matrixMultiplyDiagram(page) {

@@ -210,8 +210,8 @@
 
 .algo-box {
   background: white;
-  border: 0.28rem solid var(--reference-ink);
-  border-radius: 0.5rem;
+  border-bottom: 3px solid #111;
+  border-top: 3px solid #111;
   color: var(--reference-ink);
   font-size: 0.42em;
   line-height: 1.22;
@@ -569,11 +569,11 @@
 }
 
 .quick-runtime-panel {
-  max-width: 24rem;
+  max-width: 22rem;
   position: absolute;
-  right: 2.5rem;
+  right: 1.1rem;
   text-align: left;
-  top: 20.2rem;
+  top: 21.9rem;
 }
 
 .quick-runtime-panel .analysis-heading {
@@ -700,16 +700,27 @@
   font-size: 0.3em;
 }
 
-.closest-code-view .closest-runtime-question {
-  font-size: 0.72em;
-  margin: 0.32rem 0 0.12rem;
-}
-
 .closest-code-view .red-note,
 .closest-code-view .blue-note,
 .closest-code-view .equation {
   font-size: 0.58em;
   margin: 0.38rem 0;
+}
+
+.closest-complexity-box {
+  background: white;
+  border: 0.28rem solid var(--red);
+  border-radius: 0.5rem;
+  color: var(--red);
+  font-size: 0.5em;
+  margin: 0.45rem auto 0;
+  max-width: 30rem;
+  padding: 0.42rem 0.7rem;
+  text-align: center;
+}
+
+.closest-complexity-box p {
+  margin: 0.12rem 0;
 }
 
 .closest-code-view .closest-graph {
