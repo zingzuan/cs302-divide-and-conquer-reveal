@@ -53,15 +53,11 @@
 }
 
 .course-line {
-  background: white;
-  border: 0.28rem solid var(--reference-blue);
-  border-radius: 0.5rem;
   color: var(--muted);
   font-size: 0.62em;
   line-height: 1.25;
   margin: 1.4rem auto 0;
   max-width: 30rem;
-  padding: 0.55rem 0.75rem;
 }
 
 .uni-logo {
@@ -149,14 +145,10 @@
 }
 
 .range-label {
-  background: white;
-  border: 0.18rem solid var(--reference-ink);
-  border-radius: 0.5rem;
   color: #333;
   display: inline-block;
   font-size: 0.42em;
   margin-top: 0.15rem;
-  padding: 0.18rem 0.45rem;
   text-align: center;
 }
 
@@ -733,12 +725,8 @@
 .agenda,
 .steps,
 .summary {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 8px;
   display: inline-block;
   min-width: 64%;
-  padding: 0.55rem 0.95rem;
   text-align: left;
 }
 
@@ -839,8 +827,7 @@
 .algo-compare > div,
 .matrix {
   background: var(--panel);
-  border: 0.24rem solid var(--reference-blue);
-  border-radius: 0.5rem;
+  border: 1px solid var(--line);
   padding: 0.8rem;
 }
 
@@ -1005,21 +992,12 @@
 }
 
 .equation {
-  background: #fff;
-  border: 0.24rem solid var(--reference-blue);
-  border-radius: 0.5rem;
   font-family: var(--palladio);
   font-weight: 400;
-  padding: 0.2rem 0.45rem;
 }
 
 .complexity-table {
-  background: white;
-  border-collapse: separate;
-  border: 0.24rem solid var(--reference-blue);
-  border-radius: 0.5rem;
-  border-spacing: 0;
-  overflow: hidden;
+  border-collapse: collapse;
   margin: 1rem auto;
   width: 92%;
 }
@@ -1692,19 +1670,48 @@
   max-width: 58rem;
 }
 
+.page-134 .matrix-algorithm-layout {
+  font-size: 0.68em;
+  max-width: 55rem;
+}
+
+.page-134 .block-setup {
+  font-size: 0.42em;
+  margin-bottom: 0.15rem;
+}
+
+.page-134 .matrix-algo-block {
+  font-size: 0.39em;
+  margin: 0.1rem 0;
+}
+
+.page-134 .strassen-list {
+  line-height: 1;
+}
+
+.page-134 .strassen-combine {
+  font-size: 0.29em;
+  margin-top: 0.08rem;
+}
+
+.page-135 .matrix-running-view {
+  font-size: 0.74em;
+  max-width: 56rem;
+}
+
 .matrix-running-view .block-setup {
-  font-size: 0.5em;
-  margin-bottom: 0.25rem;
+  font-size: 0.42em;
+  margin-bottom: 0.15rem;
 }
 
 .matrix-running-view .matrix-algo-block {
-  font-size: 0.46em;
-  margin: 0.16rem 0;
+  font-size: 0.38em;
+  margin: 0.09rem 0;
 }
 
 .matrix-running-view .strassen-list {
   display: block;
-  font-size: 0.55em;
+  font-size: 0.52em;
   line-height: 1.03;
   margin-top: 0.22rem;
   width: 100%;
@@ -1716,7 +1723,7 @@
 
 .matrix-running-view .strassen-combine {
   display: block;
-  font-size: 0.62em;
+  font-size: 0.56em;
   margin: 0;
   text-align: left;
   width: 100%;
@@ -1741,7 +1748,7 @@
 }
 
 .matrix-running-view .strassen-time {
-  font-size: 0.66em;
+  font-size: 0.58em;
   margin: 0.08rem 0;
   max-width: none;
   text-align: left;
@@ -1833,13 +1840,9 @@
 }
 
 .summary-exact {
-  background: white;
-  border: 0.28rem solid var(--reference-blue);
-  border-radius: 0.5rem;
   color: #173a70;
   margin: 1.2rem 0 0;
   max-width: 72rem;
-  padding: 0.7rem 0.95rem;
   text-align: left;
 }
 
