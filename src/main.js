@@ -515,3 +515,19 @@ const deck = new Reveal({
 });
 
 deck.initialize();
+
+const staticPdfPage = document.createElement('span');
+staticPdfPage.className = 'static-pdf-page';
+document.body.append(staticPdfPage);
+
+function updateStaticPdfPage() {
+  const currentSlide = deck.getCurrentSlide();
+  const pageNumber = currentSlide?.querySelector('.pdf-page')?.textContent?.trim() || '';
+  staticPdfPage.textContent = pageNumber;
+}
+
+deck.on('ready', updateStaticPdfPage);
+deck.on('slidechanged', updateStaticPdfPage);
+deck.on('fragmentshown', updateStaticPdfPage);
+deck.on('fragmenthidden', updateStaticPdfPage);
+updateStaticPdfPage();

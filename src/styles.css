@@ -19,6 +19,20 @@
   font-weight: 400;
 }
 
+.reveal .slide-number {
+  background: transparent;
+  bottom: 1.2rem !important;
+  color: #6f625d;
+  font-family: var(--palladio);
+  font-size: 0.72rem;
+  line-height: 1;
+  padding: 0;
+  position: fixed !important;
+  right: 1.6rem !important;
+  transform: none !important;
+  z-index: 50;
+}
+
 .reveal h1,
 .reveal h2,
 .reveal h3 {
@@ -104,12 +118,18 @@
 }
 
 .pdf-page {
-  bottom: 0.35rem;
+  display: none;
+}
+
+.static-pdf-page {
+  bottom: 7rem;
   color: #777;
-  font-size: 0.44em;
-  position: absolute;
-  right: 0.45rem;
-  z-index: 30;
+  font-family: var(--palladio);
+  font-size: 0.82rem;
+  line-height: 1;
+  position: fixed;
+  right: 10.8rem;
+  z-index: 55;
 }
 
 .obj-array {
