@@ -416,8 +416,13 @@ function matrixFrame(page) {
   const intro = page >= 127 ? blockSetup : '<div class="matrix-algo-opener"><div class="mini-block-matrix"><span></span><span></span><span></span><span></span></div><strong>Block decomposition</strong><div class="mini-block-matrix"><span></span><span></span><span></span><span></span></div></div>';
   const naive = page >= 128 ? naiveBlock : '';
   const runningNaive = page >= 129 && page <= 131 ? '<p class="red-note matrix-running">Running time?</p>' : '';
-  const naiveRecurrence = page >= 130 ? '<p class="red-note matrix-recurrence">\\[T(n)=8T(n/2)+\\Theta(n^2)\\]</p>' : '';
-  const naiveResult = page >= 131 ? '<p class="red-note matrix-recurrence">\\[\\rightarrow T(n)=O(n^3)\\]</p>' : '';
+  const naiveRecurrence = page === 135
+    ? `<div class="naive-time-row">
+        <p class="red-note matrix-recurrence naive-time">\\[T(n)=8T(n/2)+\\Theta(n^2)\\]</p>
+        <p class="red-note matrix-recurrence naive-time naive-result">\\[\\rightarrow T(n)=O(n^3)\\]</p>
+      </div>`
+    : page >= 130 ? '<p class="red-note matrix-recurrence">\\[T(n)=8T(n/2)+\\Theta(n^2)\\]</p>' : '';
+  const naiveResult = page >= 131 && page !== 135 ? '<p class="red-note matrix-recurrence">\\[\\rightarrow T(n)=O(n^3)\\]</p>' : '';
   const strassen = page >= 132 ? strassenProducts(page) : '';
   const strassenTime = page === 135 ? `
     <div class="strassen-time-block">

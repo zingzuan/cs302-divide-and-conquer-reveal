@@ -1738,21 +1738,46 @@
   max-width: 56rem;
 }
 
-.matrix-running-view .block-setup {
+.page-135 .naiveBlock,
+.page-135 .naive-time-row {
+  margin-bottom: 0;
+}
+
+.matrix-running-view .naive-time-row {
+  align-items: center;
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: minmax(0, 1.05fr) minmax(12rem, 0.95fr);
+  margin: 0.08rem 0 0.14rem;
+}
+
+.matrix-running-view .naive-time {
   font-size: 0.42em;
-  margin-bottom: 0.15rem;
+  margin: 0;
+  max-width: none;
+  padding: 0.18rem 0.35rem;
+  text-align: left;
+}
+
+.matrix-running-view .naive-time .katex-display {
+  margin: 0;
+}
+
+.matrix-running-view .block-setup {
+  font-size: 0.4em;
+  margin-bottom: 0.08rem;
 }
 
 .matrix-running-view .matrix-algo-block {
   font-size: 0.38em;
-  margin: 0.09rem 0;
+  margin: 0.06rem 0;
 }
 
 .matrix-running-view .strassen-list {
   display: block;
   font-size: 0.52em;
   line-height: 1.03;
-  margin-top: 0.22rem;
+  margin-top: 0.04rem;
   width: 100%;
 }
 
