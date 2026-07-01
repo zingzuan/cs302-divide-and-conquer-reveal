@@ -374,7 +374,7 @@ const blockSetup = `
   \\]</p>`;
 
 const naiveBlock = `
-  <div class="matrix-algo-block">
+  <div class="matrix-algo-block naiveBlock">
     <p>Naive algorithm</p>
     <p class="equation">\\[
       C=AB=
@@ -438,8 +438,7 @@ function matrixFrame(page) {
   return makeSlide('Matrix multiplication algorithms', `
     <div class="matrix-algorithm-layout ${page === 135 ? 'matrix-running-view' : ''} ${page >= 136 ? 'matrix-final-view' : ''}">
       ${intro}
-      ${naive}
-      ${runningNaive}${naiveRecurrence}${naiveResult}
+      ${page === 135 ? `<div class="naive-top-row">${naive}${naiveRecurrence}</div>` : `${naive}${runningNaive}${naiveRecurrence}${naiveResult}`}
       ${strassen}
       ${combine}
       ${runningStrassen}${strassenRecurrence}${strassenResult}
