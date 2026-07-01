@@ -1229,11 +1229,7 @@
 .closest-graph .split-line,
 .closest-graph .strip-left,
 .closest-graph .strip-right {
-  background: repeating-linear-gradient(
-    to bottom,
-    var(--ink) 0 0.8rem,
-    transparent 0.8rem 1.65rem
-  );
+  background: var(--ink);
   height: 82%;
   position: absolute;
   top: 9%;
@@ -1334,15 +1330,68 @@
 }
 
 .closest-graph .grid-lines {
-  background:
-    repeating-linear-gradient(to bottom, transparent 0 1.95rem, rgba(24, 32, 47, 0.75) 1.95rem 2.05rem),
-    repeating-linear-gradient(to right, transparent 0 1.95rem, rgba(24, 32, 47, 0.75) 1.95rem 2.05rem);
   height: 10rem;
   left: 48.2%;
   position: absolute;
   top: 24%;
   width: 8.4%;
   z-index: 2;
+}
+
+.closest-graph .grid-v,
+.closest-graph .grid-h {
+  display: block;
+  position: absolute;
+}
+
+.closest-graph .grid-v {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(24, 32, 47, 0.75) 0 0.5rem,
+    transparent 0.5rem 1.15rem
+  );
+  height: 100%;
+  top: 0;
+  width: 1px;
+}
+
+.closest-graph .grid-v1 {
+  left: 16.666%;
+}
+
+.closest-graph .grid-v2 {
+  left: 33.333%;
+}
+
+.closest-graph .grid-v3 {
+  left: 66.666%;
+}
+
+.closest-graph .grid-v4 {
+  left: 83.333%;
+}
+
+.closest-graph .grid-h {
+  background: rgba(24, 32, 47, 0.65);
+  height: 1px;
+  left: 0;
+  width: 100%;
+}
+
+.closest-graph .grid-h1 {
+  top: 20%;
+}
+
+.closest-graph .grid-h2 {
+  top: 40%;
+}
+
+.closest-graph .grid-h3 {
+  top: 60%;
+}
+
+.closest-graph .grid-h4 {
+  top: 80%;
 }
 
 .wide-code pre {

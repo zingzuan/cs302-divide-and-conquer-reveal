@@ -301,7 +301,17 @@ function closestGraph(page) {
   const left = page >= 97 ? '<i class="dl-line"></i><b class="dl-label">\\(d_l\\)</b>' : '';
   const right = page >= 99 ? '<i class="dr-line"></i><b class="dr-label">\\(d_r\\)</b>' : '';
   const strip = page >= 101 ? '<i class="band"></i><i class="strip-left"></i><i class="strip-right"></i><b class="strip-label">\\(d\\quad d\\)</b>' : '';
-  const grid = page >= 103 ? '<i class="grid-lines"></i>' : '';
+  const grid = page >= 103 ? `
+    <i class="grid-lines">
+      <span class="grid-v grid-v1"></span>
+      <span class="grid-v grid-v2"></span>
+      <span class="grid-v grid-v3"></span>
+      <span class="grid-v grid-v4"></span>
+      <span class="grid-h grid-h1"></span>
+      <span class="grid-h grid-h2"></span>
+      <span class="grid-h grid-h3"></span>
+      <span class="grid-h grid-h4"></span>
+    </i>` : '';
   const dFormula = page >= 100 ? '<p class="equation closest-graph-equation">\\[d = \\min\\{d_l,d_r\\}\\]</p>' : '';
   return `<div class="closest-graph-stack"><div class="closest-graph exact">${pts}${strip}${split}${left}${right}${grid}</div>${dFormula}</div>`;
 }
