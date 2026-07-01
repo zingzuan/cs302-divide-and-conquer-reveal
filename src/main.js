@@ -406,11 +406,44 @@ const strassenCombine = `
     \\end{bmatrix}
   \\]</p>`;
 
+const matrixGhost = (content, show, className = '') => `<div class="${className} ${show ? '' : 'matrix-ghost'}">${content}</div>`;
+
+function matrixAlgorithmSequence(page) {
+  const naiveTime = `
+    <div class="naive-time-row">
+      <p class="red-note matrix-recurrence naive-time ${page >= 130 ? '' : 'matrix-ghost'}">\\[T(n)=8T(n/2)+\\Theta(n^2)\\]</p>
+      <p class="red-note matrix-recurrence naive-time naive-result ${page >= 131 ? '' : 'matrix-ghost'}">\\[\\rightarrow T(n)=O(n^3)\\]</p>
+    </div>`;
+  const strassenTime = `
+    <div class="strassen-time-block ${page >= 135 ? '' : 'matrix-ghost'}">
+      <p class="red-note matrix-recurrence strassen-time">\\[T(n)=7T(n/2)+\\Theta(n^2)\\]</p>
+      <p class="red-note matrix-recurrence strassen-time strassen-result">\\[\\rightarrow T(n)=O(n^{\\log_2 7})\\approx O(n^{2.81})\\]</p>
+    </div>`;
+
+  return `
+    <div class="matrix-algorithm-layout matrix-running-view matrix-fixed-view">
+      ${matrixGhost(blockSetup, page >= 127, 'matrix-intro-slot')}
+      <div class="naive-top-row">
+        ${matrixGhost(naiveBlock, page >= 128, 'matrix-naive-slot')}
+        ${naiveTime}
+      </div>
+      ${matrixGhost(strassenProducts(page), page >= 132, 'matrix-strassen-slot')}
+      <div class="strassen-bottom-row">
+        ${matrixGhost(strassenCombine, page >= 134, 'matrix-combine-slot')}
+        ${strassenTime}
+      </div>
+    </div>`;
+}
+
 function matrixFrame(page) {
   if (page <= 125) {
     const formula = page >= 124 ? '<p class="equation matrix-entry">\\[C_{i,j}=\\sum_{p=1}^{k} A_{i,p}B_{p,j}\\]</p>' : '';
     const total = page >= 125 ? '<p class="blue-note matrix-total">Total time complexity: \\(\\Theta(mnk)\\)</p>' : '';
     return makeSlide('Matrix multiplication', `${matrixMultiplyDiagram(page)}${formula}${total}`, page);
+  }
+
+  if (page >= 127 && page <= 135) {
+    return makeSlide('Matrix multiplication algorithms', matrixAlgorithmSequence(page), page);
   }
 
   const intro = page >= 127 ? blockSetup : '<div class="matrix-algo-opener"><div class="mini-block-matrix"><span></span><span></span><span></span><span></span></div><strong>Block decomposition</strong><div class="mini-block-matrix"><span></span><span></span><span></span><span></span></div></div>';

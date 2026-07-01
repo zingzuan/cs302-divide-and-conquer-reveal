@@ -1881,6 +1881,115 @@
   margin: 0;
 }
 
+.matrix-ghost {
+  visibility: hidden;
+}
+
+.matrix-fixed-view {
+  font-size: 0.74em;
+  max-width: 56rem;
+}
+
+.page-134 .matrix-fixed-view {
+  font-size: 0.74em;
+  max-width: 56rem;
+}
+
+.matrix-fixed-view .matrix-intro-slot {
+  min-height: 2.9rem;
+}
+
+.matrix-fixed-view .block-setup {
+  font-size: 0.52em;
+  margin: 0.08rem 0 0.22rem;
+  text-align: center;
+}
+
+.matrix-fixed-view .naive-top-row,
+.matrix-fixed-view .strassen-bottom-row {
+  align-items: center;
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: minmax(0, 1.16fr) minmax(16rem, 0.84fr);
+}
+
+.matrix-fixed-view .naive-top-row {
+  margin: 0.08rem 0 0.2rem;
+}
+
+.matrix-fixed-view .matrix-algo-block {
+  font-size: 0.52em;
+  margin: 0.06rem 0;
+}
+
+.matrix-fixed-view .matrix-algo-block > p:first-child,
+.matrix-fixed-view .strassen-title {
+  font-size: 1.16em;
+}
+
+.matrix-fixed-view .matrix-algo-block .equation,
+.matrix-fixed-view .strassen-combine,
+.matrix-fixed-view .matrix-recurrence,
+.matrix-fixed-view .strassen-time {
+  font-size: 0.52em;
+}
+
+.matrix-fixed-view .matrix-algo-block .equation {
+  font-size: 1em;
+}
+
+.matrix-fixed-view .naiveBlock .equation .katex-display {
+  text-align: left !important;
+}
+
+.matrix-fixed-view .naive-time-row {
+  display: block;
+}
+
+.matrix-fixed-view .naive-time,
+.matrix-fixed-view .strassen-time {
+  margin: 0.08rem 0;
+  max-width: none;
+  padding: 0.18rem 0.35rem;
+  text-align: left;
+}
+
+.matrix-fixed-view .naive-time .katex-display,
+.matrix-fixed-view .strassen-time .katex-display,
+.matrix-fixed-view .strassen-combine .katex-display {
+  margin: 0;
+}
+
+.matrix-fixed-view .strassen-list {
+  display: block;
+  font-size: 0.52em;
+  line-height: 1.03;
+  margin-top: 0.04rem;
+  width: 100%;
+}
+
+.matrix-fixed-view .strassen-list p:not(.strassen-title) {
+  margin-left: 1.6rem;
+}
+
+.matrix-fixed-view .strassen-bottom-row {
+  margin-top: 0.35rem;
+}
+
+.matrix-fixed-view .strassen-combine {
+  display: block;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.matrix-fixed-view .strassen-time-block {
+  background: #fff7f7;
+  border: 1px solid #f0cbc8;
+  border-radius: 8px;
+  padding: 0.35rem 0.5rem;
+}
+
 .matrix-final-view {
   font-size: 0.58em;
   max-width: 47rem;
