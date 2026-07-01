@@ -159,7 +159,7 @@
   color: var(--red);
   display: block;
   font-size: 0.64em;
-  margin: 0.7rem 0;
+  margin: 0.85rem 0;
   padding: 0.28rem 0.5rem;
   width: fit-content;
 }
@@ -176,9 +176,20 @@
   color: var(--reference-blue);
   display: block;
   font-size: 0.62em;
-  margin: 0.55rem 0;
+  margin: 0.75rem 0;
   padding: 0.28rem 0.5rem;
   width: fit-content;
+}
+
+.red-note + .red-note,
+.red-note + .blue-note,
+.blue-note + .red-note,
+.blue-note + .blue-note,
+.callout + .callout,
+.callout + .question,
+.question + .callout,
+.question + .question {
+  margin-top: 1rem;
 }
 
 .selection-layout,
@@ -552,7 +563,7 @@
 
 .analysis-quick .red-note,
 .analysis-quick .equation {
-  margin: 0.16rem 0;
+  margin: 0.3rem 0;
 }
 
 .analysis-quick .quick-recurrence {
@@ -701,8 +712,8 @@
 
 .closest-text-column .red-note,
 .closest-text-column .blue-note {
-  margin-top: 0.28rem;
-  margin-bottom: 0.28rem;
+  margin-top: 0.45rem;
+  margin-bottom: 0.45rem;
 }
 
 .closest-code {
@@ -720,8 +731,8 @@
 
 .closest-code-view .closest-text-column .red-note,
 .closest-code-view .closest-text-column .blue-note {
-  margin-top: 0.2rem;
-  margin-bottom: 0.2rem;
+  margin-top: 0.34rem;
+  margin-bottom: 0.34rem;
 }
 
 .closest-code-view .red-note,
