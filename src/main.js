@@ -262,13 +262,17 @@ function quickFrame(page) {
   const pivot = page >= 59 ? 7 : null;
   const topNote = page === 58 ? '<p class="red-note choose-pivot">choose a pivot</p>' : '';
   const isolatedPivot = page === 60 ? '<div class="quick-pivot-drop"><span class="single-pivot">6</span></div>' : '';
-  const leftPivot = page >= 61 ? '<span class="pivot-label left-pivot">&lt; pivot</span>' : '';
-  const rightPivot = page >= 62 ? '<span class="pivot-label right-pivot">&gt; pivot</span>' : '';
+  const partitionLabels = stage >= 1 ? `<div class="quick-pivot-label-row">
+      <span>${page >= 61 ? '&lt; pivot' : ''}</span>
+      <span>${page >= 60 ? 'pivot' : ''}</span>
+      <span>${page >= 62 ? '&gt; pivot' : ''}</span>
+    </div>` : '';
   const parts = [
     topNote,
     `<div class="quick-top">${row(['5','2','4','8','1','3','7','6'], { pivot })}</div>`,
     isolatedPivot,
-    stage >= 1 ? `<div class="quick-row partition-row">${leftPivot}${row(['5','2','4','1','3'])}<span class="single-pivot">6</span>${row(['8','7'])}${rightPivot}</div>` : '',
+    partitionLabels,
+    stage >= 1 ? `<div class="quick-row partition-row">${row(['5','2','4','1','3'])}<span class="single-pivot">6</span>${row(['8','7'])}</div>` : '',
     stage >= 2 ? `<div class="quick-arrows">${downArrow('Sort')}${page >= 64 ? downArrow('Sort') : ''}</div>` : '',
     stage >= 3 ? `<div class="quick-row">${row(['1','2','3','4','5'])}${row(['7','8'])}</div>` : '',
     page >= 66 ? `<div class="quick-row">${row(['1','2','3','4','5'])}<span class="single-pivot">6</span>${page >= 67 ? row(['1','2','3','4','5','6','7','8']) : ''}</div>` : '',

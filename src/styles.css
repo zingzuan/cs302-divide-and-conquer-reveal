@@ -4,14 +4,17 @@
   --blue: #2266aa;
   --teal: #178f83;
   --gold: #d99518;
-  --red: #c4473d;
+  --red: #db4437;
   --panel: #f5f7fb;
   --line: #d8deea;
-  --palladio: "Palatino Linotype", "Book Antiqua", Palatino, "URW Palladio L", Georgia, serif;
+  --palladio: "Palatino Linotype", "Book Antiqua", Palatino, "Palatino", "URW Palladio L", Georgia, serif;
+  --reference-ink: #121426;
+  --reference-blue: #4885ed;
+  --reference-green: #0f9d58;
 }
 
 .reveal {
-  color: var(--ink);
+  color: var(--reference-ink);
   font-family: var(--palladio);
   font-weight: 400;
 }
@@ -50,9 +53,9 @@
 }
 
 .course-line {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  background: white;
+  border: 0.28rem solid var(--reference-blue);
+  border-radius: 0.5rem;
   color: var(--muted);
   font-size: 0.62em;
   line-height: 1.25;
@@ -92,7 +95,7 @@
 }
 
 .object-frame h2 {
-  color: #173a70;
+  color: var(--reference-ink);
   font-size: 1.08em;
   margin: 0 0 0.75rem;
   text-align: left;
@@ -134,7 +137,7 @@
 .obj-cell.min,
 .obj-cell.pivot {
   background: #fee7e7;
-  border-color: red;
+  border-color: var(--red);
 }
 
 .obj-cell.hot {
@@ -146,9 +149,9 @@
 }
 
 .range-label {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  background: white;
+  border: 0.18rem solid var(--reference-ink);
+  border-radius: 0.5rem;
   color: #333;
   display: inline-block;
   font-size: 0.42em;
@@ -158,14 +161,14 @@
 }
 
 .red-note {
-  background: #fff7f7;
-  border: 1px solid #f0cbc8;
-  border-radius: 8px;
-  color: red;
+  background: white;
+  border: 0.28rem solid var(--red);
+  border-radius: 0.5rem;
+  color: var(--red);
   display: block;
   font-size: 0.64em;
   margin: 0.7rem 0;
-  padding: 0.32rem 0.55rem;
+  padding: 0.28rem 0.5rem;
   width: fit-content;
 }
 
@@ -175,14 +178,14 @@
 }
 
 .blue-note {
-  background: #f4f8ff;
-  border: 1px solid #c9d9ef;
-  border-radius: 8px;
-  color: #173a70;
+  background: white;
+  border: 0.28rem solid var(--reference-blue);
+  border-radius: 0.5rem;
+  color: var(--reference-blue);
   display: block;
   font-size: 0.62em;
   margin: 0.55rem 0;
-  padding: 0.32rem 0.55rem;
+  padding: 0.28rem 0.5rem;
   width: fit-content;
 }
 
@@ -215,11 +218,9 @@
 
 .algo-box {
   background: white;
-  border: 1px solid var(--line);
-  border-bottom: 3px solid #111;
-  border-radius: 8px;
-  border-top: 3px solid #111;
-  color: #111;
+  border: 0.28rem solid var(--reference-ink);
+  border-radius: 0.5rem;
+  color: var(--reference-ink);
   font-size: 0.42em;
   line-height: 1.22;
   padding: 0.45rem 0.7rem;
@@ -276,7 +277,7 @@
 }
 
 .split-mark {
-  background: red;
+  background: var(--red);
   height: 4.8rem;
   margin: -0.2rem auto 0;
   width: 0.45rem;
@@ -291,24 +292,24 @@
 }
 
 .sort-arrow span {
-  color: red;
+  color: var(--red);
   font-size: 0.52em;
   font-weight: 800;
 }
 
 .sort-arrow i {
-  background: red;
+  background: var(--red);
   display: inline-block;
   height: 5.8rem;
   position: relative;
-  width: 0.5rem;
+  width: 0.26rem;
 }
 
 .sort-arrow i::after {
-  border-left: 0.72rem solid transparent;
-  border-right: 0.72rem solid transparent;
-  border-top: 1.15rem solid red;
-  bottom: -0.85rem;
+  border-left: 0.48rem solid transparent;
+  border-right: 0.48rem solid transparent;
+  border-top: 0.78rem solid var(--red);
+  bottom: -0.62rem;
   content: "";
   left: 50%;
   position: absolute;
@@ -380,7 +381,7 @@
 }
 
 .pos-arrow span {
-  color: red;
+  color: var(--red);
   font-size: 0.54em;
   font-weight: 800;
   position: absolute;
@@ -391,19 +392,19 @@
 }
 
 .pos-arrow i {
-  background: red;
+  background: var(--red);
   display: block;
   height: var(--h);
   position: relative;
   transform: translateX(-50%);
-  width: 0.55rem;
+  width: 0.28rem;
 }
 
 .pos-arrow i::after {
-  border-left: 0.8rem solid transparent;
-  border-right: 0.8rem solid transparent;
-  border-top: 1.22rem solid red;
-  bottom: -1.05rem;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-top: 0.8rem solid var(--red);
+  bottom: -0.66rem;
   content: "";
   left: 50%;
   position: absolute;
@@ -416,14 +417,14 @@
 }
 
 .small-sort-arrow i {
-  width: 0.42rem;
+  width: 0.22rem;
 }
 
 .small-sort-arrow i::after {
-  border-left-width: 0.58rem;
-  border-right-width: 0.58rem;
-  border-top-width: 0.88rem;
-  bottom: -0.72rem;
+  border-left-width: 0.38rem;
+  border-right-width: 0.38rem;
+  border-top-width: 0.58rem;
+  bottom: -0.48rem;
 }
 
 .merge-result {
@@ -477,16 +478,16 @@
 }
 
 .swap-mark i {
-  background: red;
+  background: var(--red);
   display: inline-block;
-  height: 0.25rem;
+  height: 0.14rem;
   position: relative;
   width: 4rem;
 }
 
 .swap-mark i::before {
   border-bottom: 0.45rem solid transparent;
-  border-right: 0.75rem solid red;
+  border-right: 0.6rem solid var(--red);
   border-top: 0.45rem solid transparent;
   content: "";
   left: -0.7rem;
@@ -497,7 +498,7 @@
 
 .swap-mark i::after {
   border-bottom: 0.45rem solid transparent;
-  border-left: 0.75rem solid red;
+  border-left: 0.6rem solid var(--red);
   border-top: 0.45rem solid transparent;
   content: "";
   position: absolute;
@@ -507,7 +508,7 @@
 }
 
 .swap-mark span {
-  color: red;
+  color: var(--red);
   font-size: 0.48em;
   font-weight: 700;
 }
@@ -624,12 +625,24 @@
 }
 
 .partition-row {
-  margin-top: 2.3rem;
+  margin-top: 0.35rem;
   position: relative;
 }
 
+.quick-pivot-label-row {
+  align-items: center;
+  color: var(--red);
+  display: grid;
+  font-size: 0.44em;
+  font-weight: 700;
+  grid-template-columns: minmax(18rem, 1fr) 4rem minmax(8rem, 0.8fr);
+  margin: 1.2rem auto 0;
+  max-width: 36rem;
+  text-align: center;
+}
+
 .pivot-label {
-  color: red;
+  color: var(--red);
   font-size: 0.44em;
   font-weight: 700;
   position: absolute;
@@ -665,7 +678,7 @@
 }
 
 .red-arrow {
-  color: red;
+  color: var(--red);
   font-size: 0.7em;
   font-weight: 700;
 }
@@ -792,9 +805,9 @@
 
 .callout,
 .question {
-  background: var(--panel);
-  border-radius: 8px;
-  border-left: 6px solid var(--blue);
+  background: white;
+  border: 0.28rem solid var(--reference-blue);
+  border-radius: 0.5rem;
   margin: 1.3rem auto 0;
   max-width: 70%;
   padding: 0.7rem 1rem;
@@ -802,7 +815,7 @@
 }
 
 .question {
-  border-left-color: var(--red);
+  border-color: var(--red);
   font-weight: 800;
 }
 
@@ -826,8 +839,8 @@
 .algo-compare > div,
 .matrix {
   background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  border: 0.24rem solid var(--reference-blue);
+  border-radius: 0.5rem;
   padding: 0.8rem;
 }
 
@@ -993,8 +1006,8 @@
 
 .equation {
   background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  border: 0.24rem solid var(--reference-blue);
+  border-radius: 0.5rem;
   font-family: var(--palladio);
   font-weight: 400;
   padding: 0.2rem 0.45rem;
@@ -1003,8 +1016,8 @@
 .complexity-table {
   background: white;
   border-collapse: separate;
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  border: 0.24rem solid var(--reference-blue);
+  border-radius: 0.5rem;
   border-spacing: 0;
   overflow: hidden;
   margin: 1rem auto;
@@ -1820,9 +1833,9 @@
 }
 
 .summary-exact {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  background: white;
+  border: 0.28rem solid var(--reference-blue);
+  border-radius: 0.5rem;
   color: #173a70;
   margin: 1.2rem 0 0;
   max-width: 72rem;
