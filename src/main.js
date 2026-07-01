@@ -303,10 +303,6 @@ function closestGraph(page) {
   const strip = page >= 101 ? '<i class="band"></i><i class="strip-left"></i><i class="strip-right"></i><b class="strip-label">\\(d\\quad d\\)</b>' : '';
   const grid = page >= 103 ? `
     <i class="grid-lines">
-      <span class="grid-v grid-v1"></span>
-      <span class="grid-v grid-v2"></span>
-      <span class="grid-v grid-v3"></span>
-      <span class="grid-v grid-v4"></span>
       <span class="grid-h grid-h1"></span>
       <span class="grid-h grid-h2"></span>
       <span class="grid-h grid-h3"></span>

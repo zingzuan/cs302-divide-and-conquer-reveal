@@ -1338,37 +1338,9 @@
   z-index: 2;
 }
 
-.closest-graph .grid-v,
 .closest-graph .grid-h {
   display: block;
   position: absolute;
-}
-
-.closest-graph .grid-v {
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(24, 32, 47, 0.75) 0 0.5rem,
-    transparent 0.5rem 1.15rem
-  );
-  height: 100%;
-  top: 0;
-  width: 1px;
-}
-
-.closest-graph .grid-v1 {
-  left: 16.666%;
-}
-
-.closest-graph .grid-v2 {
-  left: 33.333%;
-}
-
-.closest-graph .grid-v3 {
-  left: 66.666%;
-}
-
-.closest-graph .grid-v4 {
-  left: 83.333%;
 }
 
 .closest-graph .grid-h {
