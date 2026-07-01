@@ -1871,10 +1871,10 @@
 }
 
 .matrix-running-view .strassen-time-block {
-  background: #fff7f7;
-  border: 1px solid #f0cbc8;
-  border-radius: 8px;
-  padding: 0.35rem 0.5rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
 }
 
 .matrix-running-view .strassen-time .katex-display {
@@ -1988,10 +1988,10 @@
 }
 
 .matrix-fixed-view .strassen-time-block {
-  background: #fff7f7;
-  border: 1px solid #f0cbc8;
-  border-radius: 8px;
-  padding: 0.35rem 0.5rem;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
 }
 
 .matrix-final-view {
