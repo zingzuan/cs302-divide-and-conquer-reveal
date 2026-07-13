@@ -170,6 +170,29 @@
   opacity: 0.35;
 }
 
+.obj-cell.swap-cell {
+  animation: selection-swap 1.15s ease-in-out both;
+  box-shadow: 0 0.18rem 0.4rem rgba(219, 68, 55, 0.2);
+  position: relative;
+  z-index: 8;
+}
+
+.obj-cell.swap-arc-down {
+  animation-delay: 0.04s;
+}
+
+@keyframes selection-swap {
+  0% {
+    transform: translate(0, 0);
+  }
+  45% {
+    transform: translate(calc(var(--swap-x) * 0.5), var(--swap-y));
+  }
+  100% {
+    transform: translate(var(--swap-x), 0);
+  }
+}
+
 .range-label {
   color: #333;
   display: inline-block;
@@ -288,6 +311,35 @@
 
 .compact-code {
   font-size: 0.34em;
+}
+
+.python-code-card {
+  background: #111827;
+  border: 3px solid #111;
+  color: #f8fafc;
+  font-size: 0.54em;
+  line-height: 1.2;
+  min-width: 28rem;
+  padding: 0.55rem 0.7rem;
+  text-align: left;
+}
+
+.python-code-card strong {
+  color: #f8fafc;
+}
+
+.python-code-card pre {
+  margin: 0.4rem 0 0;
+  width: 100%;
+}
+
+.reveal .python-code-card pre code {
+  border-radius: 0;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 1.55em;
+  line-height: 1.28;
+  max-height: none;
+  padding: 0.7rem;
 }
 
 .object-tree {
@@ -507,11 +559,36 @@
 }
 
 .swap-mark i {
+  animation: swap-pulse 1.15s ease-in-out both;
   background: var(--red);
   display: inline-block;
   height: 0.14rem;
   position: relative;
   width: 4rem;
+}
+
+.animated-swap-mark span {
+  animation: swap-label-pop 1.15s ease-in-out both;
+}
+
+@keyframes swap-pulse {
+  0%, 100% {
+    opacity: 0.9;
+    transform: scaleX(1);
+  }
+  45% {
+    opacity: 1;
+    transform: scaleX(1.28);
+  }
+}
+
+@keyframes swap-label-pop {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(-0.3rem);
+  }
 }
 
 .swap-mark i::before {

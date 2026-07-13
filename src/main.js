@@ -15,7 +15,10 @@ const boxes = (values, options = {}) => values.map((value, index) => {
   if (options.hot === index) cls.push('hot');
   if (options.pivot === index) cls.push('pivot');
   if (options.ghost?.includes(index)) cls.push('ghost');
-  return `<span class="${cls.join(' ')}">${value}</span>`;
+  const swapMove = options.swapMoves?.[index];
+  const style = swapMove ? ` style="--swap-x:${swapMove.x}rem;--swap-y:${swapMove.y}rem"` : '';
+  if (swapMove) cls.push('swap-cell', swapMove.y < 0 ? 'swap-arc-up' : 'swap-arc-down');
+  return `<span class="${cls.join(' ')}"${style}>${value}</span>`;
 }).join('');
 
 const row = (values, options = {}) => `<div class="obj-array">${boxes(values, options)}</div>`;
@@ -44,6 +47,24 @@ function algoSelectionForPage(page) {
     <strong>Algorithm 1:</strong> Selection sort
     ${page === 22 ? '<p class="new-code-line">Start with the algorithm header.</p>' : ''}
     <ol>${lines.slice(0, visibleCount).map((line, index) => `<li class="${index === visibleCount - 1 && page >= 23 ? 'new-code-line' : ''}">${line}</li>`).join('')}</ol>
+  </div>`;
+}
+
+function selectionPythonForPage(page) {
+  const highlight = page >= 29 ? '8-9' : '4-7';
+  return `
+  <div class="python-code-card">
+    <strong>Python version:</strong> selection_sort
+    <pre><code class="language-python" data-line-numbers="${highlight}">def selection_sort(a):
+    n = len(a)
+    for i in range(n - 1):
+        j_min = i
+        for j in range(i + 1, n):
+            if a[j] &lt; a[j_min]:
+                j_min = j
+        if j_min != i:
+            a[i], a[j_min] = a[j_min], a[i]
+    return a</code></pre>
   </div>`;
 }
 
@@ -142,18 +163,30 @@ function selectionFrame(page) {
     17: 'Swap the minimum element with the first element of the unsorted sublist',
     19: 'No need to do anything!'
   }[page];
-  const swap = [5, 8, 11, 17].includes(page) ? '<div class="swap-mark"><i></i><span>swap</span></div>' : '';
+  const swapPairs = {
+    5: [0, 2],
+    8: [1, 4],
+    11: [2, 5],
+    17: [4, 5]
+  };
+  const activeSwap = swapPairs[page];
+  const swapMoves = activeSwap ? {
+    [activeSwap[0]]: { x: (activeSwap[1] - activeSwap[0]) * 2.05, y: -1.25 },
+    [activeSwap[1]]: { x: (activeSwap[0] - activeSwap[1]) * 2.05, y: 1.25 }
+  } : null;
+  const swap = activeSwap ? '<div class="swap-mark animated-swap-mark"><i></i><span>swap</span></div>' : '';
+  const codePanel = page >= 28 ? selectionPythonForPage(page) : page >= 22 ? algoSelectionForPage(page) : '';
   const body = `
     <div class="selection-layout">
       <div>
-        ${row(arr, { sortedUntil, min })}
+        ${row(arr, { sortedUntil, min, swapMoves })}
         ${swap}
         <div class="range-label">${sortedUntil == null ? 'unsorted' : sortedUntil === 5 ? 'sorted' : 'sorted / unsorted'}</div>
         ${note ? `<p class="red-note">${note}</p>` : ''}
         ${page >= 21 ? '<p class="red-note">How to present this selection sort algorithm?</p>' : ''}
         ${page === 29 ? '<p class="red-note">Running time?</p>' : ''}
       </div>
-      ${page >= 22 ? algoSelectionForPage(page) : ''}
+      ${codePanel}
     </div>`;
   return makeSlide('Selection sort', body, page);
 }
