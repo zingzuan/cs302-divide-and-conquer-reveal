@@ -171,7 +171,7 @@
 }
 
 .obj-cell.swap-cell {
-  animation: selection-swap 1.15s ease-in-out both;
+  animation: selection-swap 2.2s cubic-bezier(0.25, 0.8, 0.25, 1) both;
   box-shadow: 0 0.18rem 0.4rem rgba(219, 68, 55, 0.2);
   position: relative;
   z-index: 8;
@@ -186,7 +186,7 @@
     transform: translate(0, 0);
   }
   45% {
-    transform: translate(calc(var(--swap-x) * 0.5), var(--swap-y));
+    transform: translate(calc(var(--swap-x) * 0.5), calc(var(--swap-y) * 1.35)) scale(1.08);
   }
   100% {
     transform: translate(var(--swap-x), 0);
@@ -559,7 +559,7 @@
 }
 
 .swap-mark i {
-  animation: swap-pulse 1.15s ease-in-out both;
+  animation: swap-pulse 2.2s cubic-bezier(0.25, 0.8, 0.25, 1) both;
   background: var(--red);
   display: inline-block;
   height: 0.14rem;
@@ -568,7 +568,7 @@
 }
 
 .animated-swap-mark span {
-  animation: swap-label-pop 1.15s ease-in-out both;
+  animation: swap-label-pop 2.2s cubic-bezier(0.25, 0.8, 0.25, 1) both;
 }
 
 @keyframes swap-pulse {
@@ -578,7 +578,7 @@
   }
   45% {
     opacity: 1;
-    transform: scaleX(1.28);
+    transform: scaleX(1.45);
   }
 }
 
@@ -587,7 +587,7 @@
     transform: translateY(0);
   }
   45% {
-    transform: translateY(-0.3rem);
+    transform: translateY(-0.42rem) scale(1.08);
   }
 }
 

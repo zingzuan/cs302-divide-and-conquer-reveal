@@ -565,8 +565,23 @@ function updateStaticPdfPage() {
   staticPdfPage.textContent = pageNumber;
 }
 
+function replaySelectionSwap() {
+  const currentSlide = deck.getCurrentSlide();
+  const animated = currentSlide?.querySelectorAll('.swap-cell, .swap-mark i, .animated-swap-mark span') || [];
+  animated.forEach((element) => {
+    element.style.animation = 'none';
+    void element.offsetWidth;
+    element.style.animation = '';
+  });
+}
+
 deck.on('ready', updateStaticPdfPage);
-deck.on('slidechanged', updateStaticPdfPage);
+deck.on('ready', replaySelectionSwap);
+deck.on('slidechanged', () => {
+  updateStaticPdfPage();
+  replaySelectionSwap();
+});
 deck.on('fragmentshown', updateStaticPdfPage);
 deck.on('fragmenthidden', updateStaticPdfPage);
 updateStaticPdfPage();
+replaySelectionSwap();
