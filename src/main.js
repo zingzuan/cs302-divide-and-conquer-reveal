@@ -171,10 +171,22 @@ function selectionFrame(page) {
   };
   const activeSwap = swapPairs[page];
   const swapMoves = activeSwap ? {
-    [activeSwap[0]]: { x: (activeSwap[1] - activeSwap[0]) * 2.05, y: -1.25 },
-    [activeSwap[1]]: { x: (activeSwap[0] - activeSwap[1]) * 2.05, y: 1.25 }
+    [activeSwap[0]]: { x: (activeSwap[1] - activeSwap[0]) * 2.05, y: -1.65 },
+    [activeSwap[1]]: { x: (activeSwap[0] - activeSwap[1]) * 2.05, y: 1.65 }
   } : null;
-  const swap = activeSwap ? '<div class="swap-mark animated-swap-mark"><i></i><span>swap</span></div>' : '';
+  const swap = activeSwap ? `
+    <div class="swap-mark animated-swap-mark" aria-label="swap">
+      <svg class="swap-curves" viewBox="0 0 120 48" role="img" aria-hidden="true">
+        <defs>
+          <marker id="swap-arrow-head" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z"></path>
+          </marker>
+        </defs>
+        <path class="swap-curve swap-curve-top" d="M14 30 C 34 4, 86 4, 106 30" />
+        <path class="swap-curve swap-curve-bottom" d="M106 34 C 86 54, 34 54, 14 34" />
+      </svg>
+      <span>swap</span>
+    </div>` : '';
   const codePanel = page >= 28 ? selectionPythonForPage(page) : page >= 22 ? algoSelectionForPage(page) : '';
   const body = `
     <div class="selection-layout">
@@ -567,7 +579,7 @@ function updateStaticPdfPage() {
 
 function replaySelectionSwap() {
   const currentSlide = deck.getCurrentSlide();
-  const animated = currentSlide?.querySelectorAll('.swap-cell, .swap-mark i, .animated-swap-mark span') || [];
+  const animated = currentSlide?.querySelectorAll('.swap-cell, .swap-curve, .animated-swap-mark span') || [];
   animated.forEach((element) => {
     element.style.animation = 'none';
     void element.offsetWidth;

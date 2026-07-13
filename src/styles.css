@@ -177,16 +177,12 @@
   z-index: 8;
 }
 
-.obj-cell.swap-arc-down {
-  animation-delay: 0.04s;
-}
-
 @keyframes selection-swap {
   0% {
     transform: translate(0, 0);
   }
   45% {
-    transform: translate(calc(var(--swap-x) * 0.5), calc(var(--swap-y) * 1.35)) scale(1.08);
+    transform: translate(calc(var(--swap-x) * 0.5), calc(var(--swap-y) * 1.1)) scale(1.06);
   }
   100% {
     transform: translate(var(--swap-x), 0);
@@ -553,33 +549,54 @@
 .swap-mark {
   align-items: center;
   display: flex;
-  gap: 0.35rem;
+  flex-direction: column;
+  gap: 0.12rem;
   justify-content: center;
-  margin: 0.2rem 0;
+  margin: 0.45rem auto 0.2rem;
+  min-height: 3rem;
+  width: fit-content;
 }
 
-.swap-mark i {
-  animation: swap-pulse 2.2s cubic-bezier(0.25, 0.8, 0.25, 1) both;
-  background: var(--red);
-  display: inline-block;
-  height: 0.14rem;
-  position: relative;
-  width: 4rem;
+.swap-curves {
+  display: block;
+  height: 2.1rem;
+  overflow: visible;
+  width: 6.2rem;
+}
+
+.swap-curve {
+  animation: swap-curve-draw 2.2s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+  fill: none;
+  marker-end: url("#swap-arrow-head");
+  stroke: var(--red);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.swap-curves marker path {
+  fill: var(--red);
+}
+
+.swap-curve-bottom {
+  animation-delay: 0.08s;
+}
+
+@keyframes swap-curve-draw {
+  0%, 100% {
+    opacity: 0.95;
+    stroke-dasharray: 140;
+    stroke-dashoffset: 0;
+  }
+  45% {
+    opacity: 1;
+    stroke-dasharray: 140;
+    stroke-dashoffset: 55;
+  }
 }
 
 .animated-swap-mark span {
   animation: swap-label-pop 2.2s cubic-bezier(0.25, 0.8, 0.25, 1) both;
-}
-
-@keyframes swap-pulse {
-  0%, 100% {
-    opacity: 0.9;
-    transform: scaleX(1);
-  }
-  45% {
-    opacity: 1;
-    transform: scaleX(1.45);
-  }
 }
 
 @keyframes swap-label-pop {
@@ -587,30 +604,8 @@
     transform: translateY(0);
   }
   45% {
-    transform: translateY(-0.42rem) scale(1.08);
+    transform: translateY(0.12rem) scale(1.08);
   }
-}
-
-.swap-mark i::before {
-  border-bottom: 0.45rem solid transparent;
-  border-right: 0.6rem solid var(--red);
-  border-top: 0.45rem solid transparent;
-  content: "";
-  left: -0.7rem;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.swap-mark i::after {
-  border-bottom: 0.45rem solid transparent;
-  border-left: 0.6rem solid var(--red);
-  border-top: 0.45rem solid transparent;
-  content: "";
-  position: absolute;
-  right: -0.7rem;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 .swap-mark span {
