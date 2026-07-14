@@ -82,11 +82,16 @@ function mergePythonPanel() {
 def merge(left, right):
     result = []
     i = j = 0
-    while i &lt; len(left) and j &lt; len(right):
+    while (
+        i &lt; len(left)
+        and j &lt; len(right)
+    ):
         if left[i] &lt;= right[j]:
-            result.append(left[i]); i += 1
+            result.append(left[i])
+            i += 1
         else:
-            result.append(right[j]); j += 1
+            result.append(right[j])
+            j += 1
     result.extend(left[i:])
     result.extend(right[j:])
     return result</code></pre>
@@ -427,8 +432,8 @@ function closestFrame(page) {
     'For each left-strip point, binary-search right-strip y-range \\([p_y-d,p_y+d]\\)',
     'Check candidates and return the closest pair and distance'
   ];
-  const closestCount = page >= 110 ? Math.min(8, Math.max(1, page - 109)) : 0;
-  const closestCodePanel = page >= 110 && page < 115 ? `
+  const closestCount = page >= 115 ? 8 : page >= 110 ? Math.min(8, Math.max(1, page - 109)) : 0;
+  const closestCodePanel = page >= 110 ? `
     <div class="algo-box closest-code">
       <strong>Algorithm 3:</strong> Find the closest pair in 2D space
       <ol>${closestLines.slice(0, closestCount).map((line, index) => `<li class="${index === closestCount - 1 ? 'new-code-line' : ''}">${line}</li>`).join('')}</ol>
