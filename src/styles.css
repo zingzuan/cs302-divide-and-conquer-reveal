@@ -283,6 +283,10 @@
   text-align: center;
 }
 
+.selection-layout .obj-array {
+  gap: 0.12rem;
+}
+
 .selection-swap-stage {
   padding-top: 2rem;
 }

@@ -170,7 +170,7 @@ function selectionFrame(page) {
     17: [4, 5]
   };
   const activeSwap = swapPairs[page];
-  const swapCellStep = 2.05;
+  const swapCellStep = 2.17;
   const swapMoves = activeSwap ? {
     [activeSwap[0]]: { x: (activeSwap[1] - activeSwap[0]) * swapCellStep, y: -1.9 },
     [activeSwap[1]]: { x: (activeSwap[0] - activeSwap[1]) * swapCellStep, y: 1.9 }
