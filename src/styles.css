@@ -385,6 +385,34 @@
   width: 100%;
 }
 
+.code-replace-stack {
+  position: relative;
+}
+
+.code-replace-stack > .python-code-card {
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+}
+
+.code-replace-stack:has(.python-code-card.visible) > .algo-box,
+.code-replace-stack:has(.python-code-card.visible) > .algo-pair {
+  visibility: hidden;
+}
+
+.page-29 .code-replace-stack {
+  min-height: 17rem;
+}
+
+.page-56 .code-replace-stack {
+  min-height: 24rem;
+}
+
+.page-85 .code-replace-stack {
+  min-height: 20rem;
+}
+
 .reveal .python-code-card pre code {
   border-radius: 0;
   box-sizing: border-box;
@@ -560,10 +588,10 @@
   color: var(--red);
   font-size: 0.54em;
   font-weight: 800;
+  left: 0.5rem;
   position: absolute;
-  right: 0.85rem;
-  top: 45%;
-  transform: translateY(-50%);
+  top: 1.65rem;
+  transform: none;
   white-space: nowrap;
 }
 
@@ -571,6 +599,7 @@
   background: var(--red);
   display: block;
   height: var(--h);
+  margin-top: 0.95rem;
   position: relative;
   transform: translateX(-50%);
   width: 0.28rem;
@@ -589,10 +618,12 @@
 
 .small-sort-arrow span {
   font-size: 0.42em;
-  right: 0.65rem;
+  left: 0.42rem;
+  top: 1.05rem;
 }
 
 .small-sort-arrow i {
+  margin-top: 0.72rem;
   width: 0.22rem;
 }
 
@@ -848,13 +879,29 @@
 .quick-pivot-label-row {
   align-items: center;
   color: var(--red);
-  display: grid;
+  display: flex;
   font-size: 0.44em;
   font-weight: 700;
-  grid-template-columns: minmax(18rem, 1fr) 4rem minmax(8rem, 0.8fr);
-  margin: 1.2rem auto 0;
-  max-width: 36rem;
+  gap: 1.8rem;
+  justify-content: center;
+  margin: 1.2rem auto -0.1rem;
   text-align: center;
+}
+
+.quick-pivot-label-row span {
+  display: inline-block;
+}
+
+.quick-less-label {
+  width: 10.25rem;
+}
+
+.quick-center-label {
+  width: 2.05rem;
+}
+
+.quick-greater-label {
+  width: 4.1rem;
 }
 
 .pivot-label {

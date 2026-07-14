@@ -133,7 +133,7 @@ function algoMergeForPage(page) {
 function makeSlide(title, body, page) {
   const slide = document.createElement('section');
   slide.className = `object-frame page-${page}`;
-  slide.dataset.transition = 'none';
+  slide.dataset.transition = 'fade';
   slide.innerHTML = `<h2>${title}</h2>${body}<span class="pdf-page">${page}</span>`;
   return slide;
 }
@@ -200,7 +200,7 @@ function selectionFrame(page) {
     17: [4, 5]
   };
   const activeSwap = swapPairs[page];
-  const swapCellStep = 2.35;
+  const swapCellStep = 2.48;
   const swapMoves = activeSwap ? {
     [activeSwap[0]]: { x: (activeSwap[1] - activeSwap[0]) * swapCellStep, y: -2.45 },
     [activeSwap[1]]: { x: (activeSwap[0] - activeSwap[1]) * swapCellStep, y: 2.45 }
@@ -219,7 +219,9 @@ function selectionFrame(page) {
       </svg>
       <span>swap</span>
     </div>` : '';
-  const codePanel = page >= 29 ? selectionPythonForPage(page) : page >= 22 ? algoSelectionForPage(page) : '';
+  const codePanel = page >= 29
+    ? `<div class="code-replace-stack">${algoSelectionForPage(page)}${selectionPythonForPage(page)}</div>`
+    : page >= 22 ? algoSelectionForPage(page) : '';
   const body = `
     <div class="selection-layout">
       <div class="${activeSwap ? 'selection-swap-stage' : ''}">
@@ -255,8 +257,8 @@ function mergeScene(page) {
     board.push(posRow(['1','3','7','6'], rightX, 3.1));
   }
   if (page >= 34 && page <= 47) {
-    board.push(posArrow(leftCenter, 6.4, 5.7, 'Sort'));
-    if (page >= 35) board.push(posArrow(rightCenter, 6.4, 5.7, 'Sort'));
+    board.push(posArrow(leftCenter, 6.65, 4.95, 'Sort'));
+    if (page >= 35) board.push(posArrow(rightCenter, 6.65, 4.95, 'Sort'));
   }
   if (page >= 34 && page <= 47) board.push(posRow(['2','4','5','8'], leftX, 13.2));
   if (page >= 35 && page <= 47) board.push(posRow(['1','3','6','7'], rightX, 13.2));
@@ -274,10 +276,10 @@ function mergeScene(page) {
     board.push(posRow(['1','3'], 21.7, 6.2));
     board.push(posRow(['7','6'], 30, 6.2));
     if (page >= 48) {
-      board.push(posArrow(5.8, 9.1, 3.0, 'Sort', 'small-sort-arrow'));
-      board.push(posArrow(14.1, 9.1, 3.0, 'Sort', 'small-sort-arrow'));
-      board.push(posArrow(23.8, 9.1, 3.0, 'Sort', 'small-sort-arrow'));
-      board.push(posArrow(32.1, 9.1, 3.0, 'Sort', 'small-sort-arrow'));
+      board.push(posArrow(5.8, 9.45, 2.15, 'Sort', 'small-sort-arrow'));
+      board.push(posArrow(14.1, 9.45, 2.15, 'Sort', 'small-sort-arrow'));
+      board.push(posArrow(23.8, 9.45, 2.15, 'Sort', 'small-sort-arrow'));
+      board.push(posArrow(32.1, 9.45, 2.15, 'Sort', 'small-sort-arrow'));
     }
     board.push(`<div class="pos-result small-result" style="--x:3.7rem;--y:13.1rem">${mergeResultSlots(page >= 50 ? ['2','5'] : page >= 49 ? ['5'] : [], 2)}</div>`);
     board.push(`<div class="pos-result small-result" style="--x:12rem;--y:13.1rem">${mergeResultSlots(page >= 50 ? ['4','8'] : [], 2)}</div>`);
@@ -311,7 +313,9 @@ function mergeFrame(page) {
     page >= 55 ? '<p class="blue-note merge-side-note">Master theorem</p>' : '',
     page >= 56 ? '<p class="equation merge-analysis">\\[\\Rightarrow T(n)=O(n\\log n)\\]</p>' : ''
   ].join('');
-  const codePanel = page >= 56 ? mergePythonPanel() : page >= 52 ? algoMergeForPage(page) : '';
+  const codePanel = page >= 56
+    ? `<div class="code-replace-stack">${algoMergeForPage(page)}${mergePythonPanel()}</div>`
+    : page >= 52 ? algoMergeForPage(page) : '';
   return makeSlide('Merge sort', `<div class="merge-object-layout compact-sort-layout"><div>${mergeScene(page)}${analysis}</div>${codePanel}</div>`, page);
 }
 
@@ -364,9 +368,9 @@ function quickFrame(page) {
   const topNote = page === 58 ? '<p class="red-note choose-pivot">choose a pivot</p>' : '';
   const isolatedPivot = page === 60 ? '<div class="quick-pivot-drop"><span class="single-pivot">6</span></div>' : '';
   const partitionLabels = stage >= 1 ? `<div class="quick-pivot-label-row">
-      <span>${page >= 61 ? '&lt; pivot' : ''}</span>
-      <span>${page >= 60 ? 'pivot' : ''}</span>
-      <span>${page >= 62 ? '&gt; pivot' : ''}</span>
+      <span class="quick-less-label">${page >= 61 ? '&lt; pivot' : ''}</span>
+      <span class="quick-center-label">${page >= 60 ? 'pivot' : ''}</span>
+      <span class="quick-greater-label">${page >= 62 ? '&gt; pivot' : ''}</span>
     </div>` : '';
   const parts = [
     topNote,
@@ -388,7 +392,9 @@ function quickFrame(page) {
       ${page >= 83 ? `<p class="red-note quick-scenario">Scenario 1: \\(T(n)=T(n/2)+T(n/2)+\\Theta(n)\\)<br>\\(\\rightarrow T(n)=O(n\\log n)\\) (Best)</p>` : ''}
       ${page >= 84 ? `<p class="red-note quick-scenario">Scenario 2: \\(T(n)=T(0)+T(n-1)+\\Theta(n)\\)${page >= 85 ? '<br>\\(\\rightarrow T(n)=O(n^2)\\) (Worst)' : ''}</p>` : ''}
     </div>` : '';
-  const codePanel = page >= 85 ? quickPythonPanel() : page >= 76 ? algoQuickForPage(page) : '';
+  const codePanel = page >= 85
+    ? `<div class="code-replace-stack">${algoQuickForPage(page)}${quickPythonPanel()}</div>`
+    : page >= 76 ? algoQuickForPage(page) : '';
   return makeSlide('Quick sort', `<div class="quick-object-layout compact-quick-layout quick-page-${page} ${page >= 76 ? 'analysis-quick' : ''}"><div class="quick-visual-column">${parts}</div>${codePanel}${runtimeBlock}</div>`, page);
 }
 
