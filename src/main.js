@@ -52,7 +52,7 @@ function algoSelectionForPage(page) {
 
 function selectionPythonForPage(page) {
   return `
-  <div class="python-code-card">
+  <div class="python-code-card fragment fade-in">
     <strong>Python version:</strong> selection_sort
     <pre><code class="language-python">def selection_sort(a):
     n = len(a)
@@ -69,7 +69,7 @@ function selectionPythonForPage(page) {
 
 function mergePythonPanel() {
   return `
-  <div class="python-code-card compact-python merge-python-card">
+  <div class="python-code-card compact-python merge-python-card fragment fade-in">
     <strong>Python version:</strong> merge_sort
     <pre><code class="language-python">def merge_sort(a):
     if len(a) &lt;= 1:
@@ -219,7 +219,7 @@ function selectionFrame(page) {
       </svg>
       <span>swap</span>
     </div>` : '';
-  const codePanel = page >= 28 ? selectionPythonForPage(page) : page >= 22 ? algoSelectionForPage(page) : '';
+  const codePanel = page >= 29 ? selectionPythonForPage(page) : page >= 22 ? algoSelectionForPage(page) : '';
   const body = `
     <div class="selection-layout">
       <div class="${activeSwap ? 'selection-swap-stage' : ''}">
@@ -311,7 +311,7 @@ function mergeFrame(page) {
     page >= 55 ? '<p class="blue-note merge-side-note">Master theorem</p>' : '',
     page >= 56 ? '<p class="equation merge-analysis">\\[\\Rightarrow T(n)=O(n\\log n)\\]</p>' : ''
   ].join('');
-  const codePanel = page >= 53 ? mergePythonPanel() : page >= 52 ? algoMergeForPage(page) : '';
+  const codePanel = page >= 56 ? mergePythonPanel() : page >= 52 ? algoMergeForPage(page) : '';
   return makeSlide('Merge sort', `<div class="merge-object-layout compact-sort-layout"><div>${mergeScene(page)}${analysis}</div>${codePanel}</div>`, page);
 }
 
@@ -337,7 +337,7 @@ function algoQuickForPage(page) {
 
 function quickPythonPanel() {
   return `
-  <div class="python-code-card compact-python quick-python-card">
+  <div class="python-code-card compact-python quick-python-card fragment fade-in">
     <strong>Python version:</strong> quick_sort
     <pre><code class="language-python">def quick_sort(a):
     if len(a) &lt; 2:
@@ -388,7 +388,7 @@ function quickFrame(page) {
       ${page >= 83 ? `<p class="red-note quick-scenario">Scenario 1: \\(T(n)=T(n/2)+T(n/2)+\\Theta(n)\\)<br>\\(\\rightarrow T(n)=O(n\\log n)\\) (Best)</p>` : ''}
       ${page >= 84 ? `<p class="red-note quick-scenario">Scenario 2: \\(T(n)=T(0)+T(n-1)+\\Theta(n)\\)${page >= 85 ? '<br>\\(\\rightarrow T(n)=O(n^2)\\) (Worst)' : ''}</p>` : ''}
     </div>` : '';
-  const codePanel = page >= 83 ? quickPythonPanel() : page >= 76 ? algoQuickForPage(page) : '';
+  const codePanel = page >= 85 ? quickPythonPanel() : page >= 76 ? algoQuickForPage(page) : '';
   return makeSlide('Quick sort', `<div class="quick-object-layout compact-quick-layout quick-page-${page} ${page >= 76 ? 'analysis-quick' : ''}"><div class="quick-visual-column">${parts}</div>${codePanel}${runtimeBlock}</div>`, page);
 }
 
@@ -452,7 +452,7 @@ function closestFrame(page) {
 
 function closestPythonPanel() {
   return `
-  <div class="python-code-card compact-python closest-python-card">
+  <div class="python-code-card compact-python closest-python-card fragment fade-in">
     <strong>Python version:</strong> closest_pair
     <pre><code class="language-python">def closest_pair(points):
     points_x = sorted(points)
