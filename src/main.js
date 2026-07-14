@@ -428,9 +428,7 @@ function closestFrame(page) {
     'Check candidates and return the closest pair and distance'
   ];
   const closestCount = page >= 110 ? Math.min(8, Math.max(1, page - 109)) : 0;
-  const closestCodePanel = page >= 115
-    ? closestPythonPanel()
-    : page >= 110 ? `
+  const closestCodePanel = page >= 110 && page < 115 ? `
     <div class="algo-box closest-code">
       <strong>Algorithm 3:</strong> Find the closest pair in 2D space
       <ol>${closestLines.slice(0, closestCount).map((line, index) => `<li class="${index === closestCount - 1 ? 'new-code-line' : ''}">${line}</li>`).join('')}</ol>
@@ -443,7 +441,8 @@ function closestFrame(page) {
       <p>\\(T(n)=2T(n/2)+\\Theta(n\\log n)\\)</p>
       ${page >= 115 ? '<p>\\(T(n)=O(n\\log n\\log n)\\)</p>' : ''}
     </div>` : '';
-  return makeSlide('Closest pair', `<div class="closest-exact-layout ${page >= 110 ? 'closest-code-view' : ''}"><div class="closest-text-column">${intro}${exhaustive}${divide}${left}${right}${packing}${eight}${pseudo}${complexity}</div>${closestGraph(page)}</div>`, page);
+  const graphColumn = `<div class="closest-graph-column">${closestGraph(page)}${page >= 115 ? closestPythonPanel() : ''}</div>`;
+  return makeSlide('Closest pair', `<div class="closest-exact-layout ${page >= 110 ? 'closest-code-view' : ''} ${page >= 115 ? 'closest-python-view' : ''}"><div class="closest-text-column">${intro}${exhaustive}${divide}${left}${right}${packing}${eight}${pseudo}${complexity}</div>${graphColumn}</div>`, page);
 }
 
 function closestPythonPanel() {

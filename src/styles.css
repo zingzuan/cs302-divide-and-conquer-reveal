@@ -914,6 +914,11 @@
   text-align: center;
 }
 
+.closest-graph-column {
+  display: grid;
+  justify-items: center;
+}
+
 .closest-graph-equation {
   font-size: 0.52em;
   margin: -2.8rem auto 0;
@@ -945,14 +950,14 @@
 }
 
 .closest-python-card {
-  font-size: 0.19em;
-  max-width: 27.5rem;
+  font-size: 0.26em;
+  max-width: 23rem;
 }
 
 .reveal .closest-python-card pre code {
-  font-size: 1.02em;
-  line-height: 1.05;
-  padding: 0.28rem;
+  font-size: 1.04em;
+  line-height: 1.04;
+  padding: 0.34rem;
 }
 
 .closest-code-view .closest-text-column .red-note,
@@ -999,6 +1004,30 @@
   font-size: 0.5em;
   margin-left: 2rem;
   margin-top: -5.5rem;
+}
+
+.closest-python-view {
+  gap: 0.7rem;
+  grid-template-columns: minmax(30rem, 0.88fr) minmax(25rem, 0.8fr);
+}
+
+.closest-python-view .closest-graph-column {
+  margin-top: -1.45rem;
+}
+
+.closest-python-view .closest-graph {
+  transform: scale(0.58);
+  transform-origin: top center;
+}
+
+.closest-python-view .closest-graph-equation {
+  font-size: 0.44em;
+  margin-left: 0;
+  margin-top: -8.9rem;
+}
+
+.closest-python-view .closest-python-card {
+  margin-top: -0.8rem;
 }
 
 .lead {
