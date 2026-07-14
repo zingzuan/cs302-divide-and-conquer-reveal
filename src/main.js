@@ -190,7 +190,7 @@ function selectionFrame(page) {
   const codePanel = page >= 28 ? selectionPythonForPage(page) : page >= 22 ? algoSelectionForPage(page) : '';
   const body = `
     <div class="selection-layout">
-      <div>
+      <div class="${activeSwap ? 'selection-swap-stage' : ''}">
         ${row(arr, { sortedUntil, min, swapMoves })}
         ${swap}
         <div class="range-label">${sortedUntil == null ? 'unsorted' : sortedUntil === 5 ? 'sorted' : 'sorted / unsorted'}</div>

@@ -171,18 +171,37 @@
 }
 
 .obj-cell.swap-cell {
-  animation: selection-swap 2.2s cubic-bezier(0.25, 0.8, 0.25, 1) both;
   box-shadow: 0 0.18rem 0.4rem rgba(219, 68, 55, 0.2);
   position: relative;
   z-index: 8;
 }
 
-@keyframes selection-swap {
+.obj-cell.swap-arc-up {
+  animation: selection-swap-up 2.2s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+}
+
+.obj-cell.swap-arc-down {
+  animation: selection-swap-down 2.2s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+}
+
+@keyframes selection-swap-up {
   0% {
     transform: translate(0, 0);
   }
   45% {
-    transform: translate(calc(var(--swap-x) * 0.5), calc(var(--swap-y) * 1.1)) scale(1.06);
+    transform: translate(calc(var(--swap-x) * 0.5), -3.1rem) scale(1.06);
+  }
+  100% {
+    transform: translate(var(--swap-x), 0);
+  }
+}
+
+@keyframes selection-swap-down {
+  0% {
+    transform: translate(0, 0);
+  }
+  45% {
+    transform: translate(calc(var(--swap-x) * 0.5), 3.1rem) scale(1.06);
   }
   100% {
     transform: translate(var(--swap-x), 0);
@@ -262,6 +281,10 @@
   align-self: center;
   justify-self: center;
   text-align: center;
+}
+
+.selection-swap-stage {
+  padding-top: 2rem;
 }
 
 .algo-box {
