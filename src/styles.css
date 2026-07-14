@@ -365,9 +365,11 @@
 .python-code-card {
   background: #111827;
   border: 3px solid #111;
+  box-sizing: border-box;
   color: #f8fafc;
   font-size: 0.54em;
   line-height: 1.2;
+  max-width: 100%;
   min-width: 28rem;
   padding: 0.55rem 0.7rem;
   text-align: left;
@@ -379,20 +381,25 @@
 
 .python-code-card pre {
   margin: 0.4rem 0 0;
+  overflow: hidden;
   width: 100%;
 }
 
 .reveal .python-code-card pre code {
   border-radius: 0;
+  box-sizing: border-box;
   font-family: Consolas, "Courier New", monospace;
   font-size: 1.55em;
   line-height: 1.28;
   max-height: none;
+  overflow: hidden;
   padding: 0.7rem;
+  width: 100%;
 }
 
 .compact-python {
   font-size: 0.31em;
+  max-width: 100%;
   min-width: 0;
   padding: 0.4rem 0.55rem;
 }
@@ -712,7 +719,14 @@
 }
 
 .quick-python-card {
-  max-width: 24rem;
+  font-size: 0.29em;
+  max-width: 23rem;
+}
+
+.reveal .quick-python-card pre code {
+  font-size: 1.2em;
+  line-height: 1.15;
+  padding: 0.4rem;
 }
 
 .quick-recurrence {
@@ -920,14 +934,14 @@
 }
 
 .closest-python-card {
-  font-size: 0.21em;
-  max-width: 29rem;
+  font-size: 0.19em;
+  max-width: 27.5rem;
 }
 
 .reveal .closest-python-card pre code {
-  font-size: 1.08em;
-  line-height: 1.1;
-  padding: 0.32rem;
+  font-size: 1.02em;
+  line-height: 1.05;
+  padding: 0.28rem;
 }
 
 .closest-code-view .closest-text-column .red-note,
