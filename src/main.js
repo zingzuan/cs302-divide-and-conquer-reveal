@@ -69,7 +69,7 @@ function selectionPythonForPage(page) {
 
 function mergePythonPanel() {
   return `
-  <div class="python-code-card compact-python">
+  <div class="python-code-card compact-python merge-python-card">
     <strong>Python version:</strong> merge_sort
     <pre><code class="language-python">def merge_sort(a):
     if len(a) &lt;= 1:

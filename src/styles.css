@@ -410,6 +410,17 @@
   padding: 0.45rem;
 }
 
+.merge-python-card {
+  font-size: 0.36em;
+  max-width: 28rem;
+}
+
+.reveal .merge-python-card pre code {
+  font-size: 1.34em;
+  line-height: 1.18;
+  padding: 0.5rem;
+}
+
 .selection-code-stack .algo-box {
   font-size: 0.34em;
 }
@@ -719,14 +730,14 @@
 }
 
 .quick-python-card {
-  font-size: 0.29em;
-  max-width: 23rem;
+  font-size: 0.34em;
+  max-width: 27rem;
 }
 
 .reveal .quick-python-card pre code {
-  font-size: 1.2em;
-  line-height: 1.15;
-  padding: 0.4rem;
+  font-size: 1.32em;
+  line-height: 1.18;
+  padding: 0.5rem;
 }
 
 .quick-recurrence {
