@@ -188,8 +188,14 @@
   0% {
     transform: translate(0, 0);
   }
+  18% {
+    transform: translate(0, var(--swap-y));
+  }
   45% {
-    transform: translate(calc(var(--swap-x) * 0.5), -3.1rem) scale(1.06);
+    transform: translate(calc(var(--swap-x) * 0.5), var(--swap-y));
+  }
+  82% {
+    transform: translate(var(--swap-x), var(--swap-y));
   }
   100% {
     transform: translate(var(--swap-x), 0);
@@ -200,8 +206,14 @@
   0% {
     transform: translate(0, 0);
   }
+  18% {
+    transform: translate(0, var(--swap-y));
+  }
   45% {
-    transform: translate(calc(var(--swap-x) * 0.5), 3.1rem) scale(1.06);
+    transform: translate(calc(var(--swap-x) * 0.5), var(--swap-y));
+  }
+  82% {
+    transform: translate(var(--swap-x), var(--swap-y));
   }
   100% {
     transform: translate(var(--swap-x), 0);
@@ -285,6 +297,10 @@
 
 .selection-swap-stage {
   padding-top: 2rem;
+}
+
+.selection-swap-stage .obj-array {
+  gap: 0.23rem;
 }
 
 .algo-box {
