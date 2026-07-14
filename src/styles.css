@@ -171,17 +171,20 @@
 }
 
 .obj-cell.swap-cell {
+  backface-visibility: hidden;
   box-shadow: 0 0.18rem 0.4rem rgba(219, 68, 55, 0.2);
   position: relative;
+  transform-origin: center;
+  will-change: transform;
   z-index: 8;
 }
 
 .obj-cell.swap-arc-up {
-  animation: selection-swap-up 2.2s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+  animation: selection-swap-up 2.35s cubic-bezier(0.22, 0.75, 0.22, 1) both;
 }
 
 .obj-cell.swap-arc-down {
-  animation: selection-swap-down 2.2s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+  animation: selection-swap-down 2.35s cubic-bezier(0.22, 0.75, 0.22, 1) both;
 }
 
 @keyframes selection-swap-up {
@@ -226,6 +229,24 @@
   margin: 0.85rem 0;
   padding: 0.28rem 0.5rem;
   width: fit-content;
+}
+
+.reveal section.present .red-note,
+.reveal section.present .blue-note,
+.reveal section.present .algo-box,
+.reveal section.present .equation {
+  animation: content-soft-in 0.34s cubic-bezier(0.22, 0.75, 0.22, 1) both;
+}
+
+@keyframes content-soft-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.14rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .near-arrows {
@@ -579,8 +600,8 @@
   flex-direction: column;
   gap: 0.06rem;
   justify-content: center;
-  margin: 0.35rem auto 0.2rem;
-  min-height: 3.8rem;
+  margin: 2.15rem auto 0.2rem;
+  min-height: 4.95rem;
   width: fit-content;
 }
 
@@ -592,7 +613,7 @@
 }
 
 .swap-curve {
-  animation: swap-curve-draw 2.2s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+  animation: swap-curve-draw 2.35s cubic-bezier(0.22, 0.75, 0.22, 1) both;
   fill: none;
   stroke: var(--red);
   stroke-linecap: round;
@@ -622,7 +643,7 @@
 }
 
 .animated-swap-mark span {
-  animation: swap-label-pop 2.2s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+  animation: swap-label-pop 2.35s cubic-bezier(0.22, 0.75, 0.22, 1) both;
 }
 
 @keyframes swap-label-pop {
@@ -1339,6 +1360,28 @@
   left: 52.4%;
 }
 
+.reveal section.present .closest-graph .split-line,
+.reveal section.present .closest-graph .strip-left,
+.reveal section.present .closest-graph .strip-right,
+.reveal section.present .closest-graph .band,
+.reveal section.present .closest-graph .dl-line,
+.reveal section.present .closest-graph .dr-line,
+.reveal section.present .closest-graph .dl-label,
+.reveal section.present .closest-graph .dr-label,
+.reveal section.present .closest-graph .strip-label,
+.reveal section.present .closest-graph .grid-lines {
+  animation: graph-soft-in 0.42s cubic-bezier(0.22, 0.75, 0.22, 1) both;
+}
+
+@keyframes graph-soft-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .closest-graph .strip-left {
   left: 48.2%;
 }
@@ -1406,25 +1449,36 @@
 .closest-graph .dl-label,
 .closest-graph .dr-label,
 .closest-graph .strip-label {
+  background: rgba(255, 255, 255, 0.94);
   color: var(--ink);
   font-size: 0.6em;
+  line-height: 1;
+  padding: 0 0.12rem;
   position: absolute;
   z-index: 5;
 }
 
 .closest-graph .dl-label {
-  left: 8.5%;
-  top: 22%;
+  left: 6.8%;
+  top: 24%;
 }
 
 .closest-graph .dr-label {
-  left: 77%;
-  top: 57%;
+  left: 75.2%;
+  top: 59.5%;
 }
 
 .closest-graph .strip-label {
   bottom: 3%;
-  left: 46%;
+  transform: translateX(-50%);
+}
+
+.closest-graph .strip-label-left {
+  left: 46.1%;
+}
+
+.closest-graph .strip-label-right {
+  left: 59%;
 }
 
 .closest-graph .grid-lines {

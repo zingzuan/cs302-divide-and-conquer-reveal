@@ -172,8 +172,8 @@ function selectionFrame(page) {
   const activeSwap = swapPairs[page];
   const swapCellStep = 2.35;
   const swapMoves = activeSwap ? {
-    [activeSwap[0]]: { x: (activeSwap[1] - activeSwap[0]) * swapCellStep, y: -1.9 },
-    [activeSwap[1]]: { x: (activeSwap[0] - activeSwap[1]) * swapCellStep, y: 1.9 }
+    [activeSwap[0]]: { x: (activeSwap[1] - activeSwap[0]) * swapCellStep, y: -2.45 },
+    [activeSwap[1]]: { x: (activeSwap[0] - activeSwap[1]) * swapCellStep, y: 2.45 }
   } : null;
   const swapArrowId = `swap-arrow-head-${page}`;
   const swap = activeSwap ? `
@@ -347,7 +347,7 @@ function closestGraph(page) {
   const split = page >= 95 ? '<i class="split-line"></i>' : '';
   const left = page >= 97 ? '<i class="dl-line"></i><b class="dl-label">\\(d_l\\)</b>' : '';
   const right = page >= 99 ? '<i class="dr-line"></i><b class="dr-label">\\(d_r\\)</b>' : '';
-  const strip = page >= 101 ? '<i class="band"></i><i class="strip-left"></i><i class="strip-right"></i><b class="strip-label">\\(d\\quad d\\)</b>' : '';
+  const strip = page >= 101 ? '<i class="band"></i><i class="strip-left"></i><i class="strip-right"></i><b class="strip-label strip-label-left">\\(d\\)</b><b class="strip-label strip-label-right">\\(d\\)</b>' : '';
   const grid = page >= 103 ? `
     <i class="grid-lines">
       <span class="grid-h grid-h1"></span>
