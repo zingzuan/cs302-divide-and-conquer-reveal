@@ -666,10 +666,19 @@ const staticPdfPage = document.createElement('span');
 staticPdfPage.className = 'static-pdf-page';
 document.body.append(staticPdfPage);
 
-function updateStaticPdfPage() {
+const staticSlideTitle = document.createElement('span');
+staticSlideTitle.className = 'static-slide-title';
+document.body.append(staticSlideTitle);
+
+function updateStaticChrome() {
   const currentSlide = deck.getCurrentSlide();
   const pageNumber = currentSlide?.querySelector('.pdf-page')?.textContent?.trim() || '';
+  const objectTitle = currentSlide?.classList.contains('object-frame')
+    ? currentSlide.querySelector('h2')?.textContent?.trim() || ''
+    : '';
   staticPdfPage.textContent = pageNumber;
+  staticSlideTitle.textContent = objectTitle;
+  staticSlideTitle.classList.toggle('is-visible', Boolean(objectTitle));
 }
 
 function replaySelectionSwap() {
@@ -682,13 +691,13 @@ function replaySelectionSwap() {
   });
 }
 
-deck.on('ready', updateStaticPdfPage);
+deck.on('ready', updateStaticChrome);
 deck.on('ready', replaySelectionSwap);
 deck.on('slidechanged', () => {
-  updateStaticPdfPage();
+  updateStaticChrome();
   replaySelectionSwap();
 });
-deck.on('fragmentshown', updateStaticPdfPage);
-deck.on('fragmenthidden', updateStaticPdfPage);
-updateStaticPdfPage();
+deck.on('fragmentshown', updateStaticChrome);
+deck.on('fragmenthidden', updateStaticChrome);
+updateStaticChrome();
 replaySelectionSwap();

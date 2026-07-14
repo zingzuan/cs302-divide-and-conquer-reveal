@@ -115,6 +115,7 @@
   font-size: 1.08em;
   margin: 0 0 0.75rem;
   text-align: left;
+  visibility: hidden;
 }
 
 .pdf-page {
@@ -130,6 +131,24 @@
   position: fixed;
   right: 10.8rem;
   z-index: 55;
+}
+
+.static-slide-title {
+  color: var(--reference-ink);
+  display: none;
+  font-family: var(--palladio);
+  font-size: 3.45rem;
+  font-weight: 600;
+  left: 5rem;
+  letter-spacing: 0;
+  line-height: 1;
+  position: fixed;
+  top: 4.2rem;
+  z-index: 56;
+}
+
+.static-slide-title.is-visible {
+  display: block;
 }
 
 .obj-array {
