@@ -345,7 +345,11 @@ function quickPythonPanel() {
             less.append(x)
         else:
             greater.append(x)
-    return quick_sort(less) + [pivot] + quick_sort(greater)</code></pre>
+    return (
+        quick_sort(less)
+        + [pivot]
+        + quick_sort(greater)
+    )</code></pre>
   </div>`;
 }
 
