@@ -353,6 +353,11 @@
   gap: 0.7rem;
 }
 
+.algo-stack {
+  display: grid;
+  gap: 0.55rem;
+}
+
 .compact-code {
   font-size: 0.34em;
 }
@@ -384,6 +389,34 @@
   line-height: 1.28;
   max-height: none;
   padding: 0.7rem;
+}
+
+.compact-python {
+  font-size: 0.31em;
+  min-width: 0;
+  padding: 0.4rem 0.55rem;
+}
+
+.reveal .compact-python pre code {
+  font-size: 1.28em;
+  line-height: 1.18;
+  padding: 0.45rem;
+}
+
+.selection-code-stack .algo-box {
+  font-size: 0.34em;
+}
+
+.selection-code-stack .python-code-card {
+  font-size: 0.34em;
+  min-width: 24rem;
+  padding: 0.4rem 0.55rem;
+}
+
+.selection-code-stack .python-code-card pre code {
+  font-size: 1.2em;
+  line-height: 1.14;
+  padding: 0.45rem;
 }
 
 .object-tree {
@@ -674,6 +707,14 @@
   max-width: 24rem;
 }
 
+.quick-code-stack {
+  align-self: start;
+}
+
+.quick-python-card {
+  max-width: 24rem;
+}
+
 .quick-recurrence {
   font-size: 0.48em;
   margin: 0.25rem 0;
@@ -866,12 +907,27 @@
   max-width: 38rem;
 }
 
+.closest-code-stack {
+  gap: 0.42rem;
+}
+
 .closest-code-view {
-  grid-template-columns: minmax(30rem, 0.88fr) minmax(24rem, 0.78fr);
+  grid-template-columns: minmax(33rem, 0.96fr) minmax(23rem, 0.72fr);
 }
 
 .closest-code-view .closest-code {
-  font-size: 0.3em;
+  font-size: 0.27em;
+}
+
+.closest-python-card {
+  font-size: 0.23em;
+  max-width: 33rem;
+}
+
+.reveal .closest-python-card pre code {
+  font-size: 1.12em;
+  line-height: 1.12;
+  padding: 0.36rem;
 }
 
 .closest-code-view .closest-text-column .red-note,

@@ -51,11 +51,10 @@ function algoSelectionForPage(page) {
 }
 
 function selectionPythonForPage(page) {
-  const highlight = page >= 29 ? '8-9' : '4-7';
   return `
   <div class="python-code-card">
     <strong>Python version:</strong> selection_sort
-    <pre><code class="language-python" data-line-numbers="${highlight}">def selection_sort(a):
+    <pre><code class="language-python">def selection_sort(a):
     n = len(a)
     for i in range(n - 1):
         j_min = i
@@ -65,6 +64,32 @@ function selectionPythonForPage(page) {
         if j_min != i:
             a[i], a[j_min] = a[j_min], a[i]
     return a</code></pre>
+  </div>`;
+}
+
+function mergePythonPanel() {
+  return `
+  <div class="python-code-card compact-python">
+    <strong>Python version:</strong> merge_sort
+    <pre><code class="language-python">def merge_sort(a):
+    if len(a) &lt;= 1:
+        return a
+    mid = (len(a) + 1) // 2
+    left = merge_sort(a[:mid])
+    right = merge_sort(a[mid:])
+    return merge(left, right)
+
+def merge(left, right):
+    result = []
+    i = j = 0
+    while i &lt; len(left) and j &lt; len(right):
+        if left[i] &lt;= right[j]:
+            result.append(left[i]); i += 1
+        else:
+            result.append(right[j]); j += 1
+    result.extend(left[i:])
+    result.extend(right[j:])
+    return result</code></pre>
   </div>`;
 }
 
@@ -97,6 +122,7 @@ function algoMergeForPage(page) {
       <strong>Algorithm 2:</strong> merge(L1, L2)
       <ol>${mergeLines.map((line) => `<li class="${lineClass}">${line}</li>`).join('')}</ol>
     </div>
+    ${mergePythonPanel()}
   </div>`;
 }
 
@@ -189,7 +215,9 @@ function selectionFrame(page) {
       </svg>
       <span>swap</span>
     </div>` : '';
-  const codePanel = page >= 28 ? selectionPythonForPage(page) : page >= 22 ? algoSelectionForPage(page) : '';
+  const codePanel = page >= 28
+    ? `<div class="algo-stack selection-code-stack">${algoSelectionForPage(page)}${selectionPythonForPage(page)}</div>`
+    : page >= 22 ? algoSelectionForPage(page) : '';
   const body = `
     <div class="selection-layout">
       <div class="${activeSwap ? 'selection-swap-stage' : ''}">
@@ -298,9 +326,31 @@ function algoQuickForPage(page) {
   const visibleByPage = {76: 2, 77: 3, 78: 4, 79: 5, 80: 6, 81: 7, 82: 8, 83: 8, 84: 8, 85: 8};
   const visibleCount = visibleByPage[page] ?? 8;
   return `
-  <div class="algo-box quick-code-box">
-    <strong>Algorithm 3:</strong> quick_sort
-    <ol>${lines.slice(0, visibleCount).map((line, index) => `<li class="${index === visibleCount - 1 ? 'new-code-line' : ''}">${line}</li>`).join('')}</ol>
+  <div class="algo-stack quick-code-stack">
+    <div class="algo-box quick-code-box">
+      <strong>Algorithm 3:</strong> quick_sort
+      <ol>${lines.slice(0, visibleCount).map((line, index) => `<li class="${index === visibleCount - 1 ? 'new-code-line' : ''}">${line}</li>`).join('')}</ol>
+    </div>
+    ${quickPythonPanel()}
+  </div>`;
+}
+
+function quickPythonPanel() {
+  return `
+  <div class="python-code-card compact-python quick-python-card">
+    <strong>Python version:</strong> quick_sort
+    <pre><code class="language-python">def quick_sort(a):
+    if len(a) &lt; 2:
+        return a
+    pivot = a[-1]
+    less = []
+    greater = []
+    for x in a[:-1]:
+        if x &lt; pivot:
+            less.append(x)
+        else:
+            greater.append(x)
+    return quick_sort(less) + [pivot] + quick_sort(greater)</code></pre>
   </div>`;
 }
 
@@ -379,9 +429,12 @@ function closestFrame(page) {
   ];
   const closestCount = page >= 110 ? Math.min(8, Math.max(1, page - 109)) : 0;
   const pseudo = page >= 110 ? `
-    <div class="algo-box closest-code">
-      <strong>Algorithm 3:</strong> Find the closest pair in 2D space
-      <ol>${closestLines.slice(0, closestCount).map((line, index) => `<li class="${index === closestCount - 1 ? 'new-code-line' : ''}">${line}</li>`).join('')}</ol>
+    <div class="algo-stack closest-code-stack">
+      <div class="algo-box closest-code">
+        <strong>Algorithm 3:</strong> Find the closest pair in 2D space
+        <ol>${closestLines.slice(0, closestCount).map((line, index) => `<li class="${index === closestCount - 1 ? 'new-code-line' : ''}">${line}</li>`).join('')}</ol>
+      </div>
+      ${closestPythonPanel()}
     </div>` : '';
   const complexity = page >= 114 ? `
     <div class="closest-complexity-box">
@@ -390,6 +443,35 @@ function closestFrame(page) {
       ${page >= 115 ? '<p>\\(T(n)=O(n\\log n\\log n)\\)</p>' : ''}
     </div>` : '';
   return makeSlide('Closest pair', `<div class="closest-exact-layout ${page >= 110 ? 'closest-code-view' : ''}"><div class="closest-text-column">${intro}${exhaustive}${divide}${left}${right}${packing}${eight}${pseudo}${complexity}</div>${closestGraph(page)}</div>`, page);
+}
+
+function closestPythonPanel() {
+  return `
+  <div class="python-code-card compact-python closest-python-card">
+    <strong>Python version:</strong> closest_pair
+    <pre><code class="language-python">def closest_pair(points):
+    points_x = sorted(points)
+    points_y = sorted(points, key=lambda p: p[1])
+    return closest_rec(points_x, points_y)
+
+def closest_rec(px, py):
+    if len(px) &lt;= 3:
+        return brute_force(px)
+    mid = len(px) // 2
+    mid_x = px[mid][0]
+    left_x, right_x = px[:mid], px[mid:]
+    left_set = set(left_x)
+    left_y = [p for p in py if p in left_set]
+    right_y = [p for p in py if p not in left_set]
+    pair_l, d_l = closest_rec(left_x, left_y)
+    pair_r, d_r = closest_rec(right_x, right_y)
+    best_pair, d = (pair_l, d_l) if d_l &lt;= d_r else (pair_r, d_r)
+    strip = [p for p in py if abs(p[0] - mid_x) &lt; d]
+    for i, p in enumerate(strip):
+        for q in strip[i + 1:i + 8]:
+            best_pair, d = update_best(best_pair, d, p, q)
+    return best_pair, d</code></pre>
+  </div>`;
 }
 
 function matrixMultiplyDiagram(page) {
