@@ -920,14 +920,14 @@
 }
 
 .closest-python-card {
-  font-size: 0.23em;
-  max-width: 33rem;
+  font-size: 0.21em;
+  max-width: 29rem;
 }
 
 .reveal .closest-python-card pre code {
-  font-size: 1.12em;
-  line-height: 1.12;
-  padding: 0.36rem;
+  font-size: 1.08em;
+  line-height: 1.1;
+  padding: 0.32rem;
 }
 
 .closest-code-view .closest-text-column .red-note,
@@ -971,6 +971,8 @@
 }
 
 .closest-code-view .closest-graph-equation {
+  font-size: 0.5em;
+  margin-left: 2rem;
   margin-top: -5.5rem;
 }
 

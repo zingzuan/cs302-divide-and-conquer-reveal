@@ -122,7 +122,6 @@ function algoMergeForPage(page) {
       <strong>Algorithm 2:</strong> merge(L1, L2)
       <ol>${mergeLines.map((line) => `<li class="${lineClass}">${line}</li>`).join('')}</ol>
     </div>
-    ${mergePythonPanel()}
   </div>`;
 }
 
@@ -215,9 +214,7 @@ function selectionFrame(page) {
       </svg>
       <span>swap</span>
     </div>` : '';
-  const codePanel = page >= 28
-    ? `<div class="algo-stack selection-code-stack">${algoSelectionForPage(page)}${selectionPythonForPage(page)}</div>`
-    : page >= 22 ? algoSelectionForPage(page) : '';
+  const codePanel = page >= 28 ? selectionPythonForPage(page) : page >= 22 ? algoSelectionForPage(page) : '';
   const body = `
     <div class="selection-layout">
       <div class="${activeSwap ? 'selection-swap-stage' : ''}">
@@ -309,7 +306,8 @@ function mergeFrame(page) {
     page >= 55 ? '<p class="blue-note merge-side-note">Master theorem</p>' : '',
     page >= 56 ? '<p class="equation merge-analysis">\\[\\Rightarrow T(n)=O(n\\log n)\\]</p>' : ''
   ].join('');
-  return makeSlide('Merge sort', `<div class="merge-object-layout compact-sort-layout"><div>${mergeScene(page)}${analysis}</div>${page >= 52 ? algoMergeForPage(page) : ''}</div>`, page);
+  const codePanel = page >= 53 ? mergePythonPanel() : page >= 52 ? algoMergeForPage(page) : '';
+  return makeSlide('Merge sort', `<div class="merge-object-layout compact-sort-layout"><div>${mergeScene(page)}${analysis}</div>${codePanel}</div>`, page);
 }
 
 function algoQuickForPage(page) {
@@ -326,12 +324,9 @@ function algoQuickForPage(page) {
   const visibleByPage = {76: 2, 77: 3, 78: 4, 79: 5, 80: 6, 81: 7, 82: 8, 83: 8, 84: 8, 85: 8};
   const visibleCount = visibleByPage[page] ?? 8;
   return `
-  <div class="algo-stack quick-code-stack">
-    <div class="algo-box quick-code-box">
-      <strong>Algorithm 3:</strong> quick_sort
-      <ol>${lines.slice(0, visibleCount).map((line, index) => `<li class="${index === visibleCount - 1 ? 'new-code-line' : ''}">${line}</li>`).join('')}</ol>
-    </div>
-    ${quickPythonPanel()}
+  <div class="algo-box quick-code-box">
+    <strong>Algorithm 3:</strong> quick_sort
+    <ol>${lines.slice(0, visibleCount).map((line, index) => `<li class="${index === visibleCount - 1 ? 'new-code-line' : ''}">${line}</li>`).join('')}</ol>
   </div>`;
 }
 
@@ -384,7 +379,8 @@ function quickFrame(page) {
       ${page >= 83 ? `<p class="red-note quick-scenario">Scenario 1: \\(T(n)=T(n/2)+T(n/2)+\\Theta(n)\\)<br>\\(\\rightarrow T(n)=O(n\\log n)\\) (Best)</p>` : ''}
       ${page >= 84 ? `<p class="red-note quick-scenario">Scenario 2: \\(T(n)=T(0)+T(n-1)+\\Theta(n)\\)${page >= 85 ? '<br>\\(\\rightarrow T(n)=O(n^2)\\) (Worst)' : ''}</p>` : ''}
     </div>` : '';
-  return makeSlide('Quick sort', `<div class="quick-object-layout compact-quick-layout quick-page-${page} ${page >= 76 ? 'analysis-quick' : ''}"><div class="quick-visual-column">${parts}</div>${page >= 76 ? algoQuickForPage(page) : ''}${runtimeBlock}</div>`, page);
+  const codePanel = page >= 83 ? quickPythonPanel() : page >= 76 ? algoQuickForPage(page) : '';
+  return makeSlide('Quick sort', `<div class="quick-object-layout compact-quick-layout quick-page-${page} ${page >= 76 ? 'analysis-quick' : ''}"><div class="quick-visual-column">${parts}</div>${codePanel}${runtimeBlock}</div>`, page);
 }
 
 const closestPoints = [
@@ -428,14 +424,15 @@ function closestFrame(page) {
     'Check candidates and return the closest pair and distance'
   ];
   const closestCount = page >= 110 ? Math.min(8, Math.max(1, page - 109)) : 0;
-  const pseudo = page >= 110 ? `
-    <div class="algo-stack closest-code-stack">
-      <div class="algo-box closest-code">
-        <strong>Algorithm 3:</strong> Find the closest pair in 2D space
-        <ol>${closestLines.slice(0, closestCount).map((line, index) => `<li class="${index === closestCount - 1 ? 'new-code-line' : ''}">${line}</li>`).join('')}</ol>
-      </div>
-      ${closestPythonPanel()}
+  const closestCodePanel = page >= 115
+    ? closestPythonPanel()
+    : page >= 110 ? `
+    <div class="algo-box closest-code">
+      <strong>Algorithm 3:</strong> Find the closest pair in 2D space
+      <ol>${closestLines.slice(0, closestCount).map((line, index) => `<li class="${index === closestCount - 1 ? 'new-code-line' : ''}">${line}</li>`).join('')}</ol>
     </div>` : '';
+  const pseudo = page >= 110 ? `
+    ${closestCodePanel}` : '';
   const complexity = page >= 114 ? `
     <div class="closest-complexity-box">
       <p>Running time?</p>
