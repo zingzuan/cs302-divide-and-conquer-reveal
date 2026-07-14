@@ -170,7 +170,7 @@ function selectionFrame(page) {
     17: [4, 5]
   };
   const activeSwap = swapPairs[page];
-  const swapCellStep = 2.12;
+  const swapCellStep = 2.05;
   const swapMoves = activeSwap ? {
     [activeSwap[0]]: { x: (activeSwap[1] - activeSwap[0]) * swapCellStep, y: -1.9 },
     [activeSwap[1]]: { x: (activeSwap[0] - activeSwap[1]) * swapCellStep, y: 1.9 }
@@ -180,8 +180,8 @@ function selectionFrame(page) {
     <div class="swap-mark animated-swap-mark" aria-label="swap">
       <svg class="swap-curves" viewBox="0 0 120 68" role="img" aria-hidden="true">
         <defs>
-          <marker id="${swapArrowId}" class="swap-arrow-head" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L10,5 L0,10 Z"></path>
+          <marker id="${swapArrowId}" class="swap-arrow-head" markerWidth="11" markerHeight="11" refX="9.4" refY="5.5" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L11,5.5 L0,11 Z"></path>
           </marker>
         </defs>
         <path class="swap-curve swap-curve-top" marker-end="url(#${swapArrowId})" d="M12 23 C 35 -3, 85 -3, 108 23" />
